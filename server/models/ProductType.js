@@ -1,17 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../database/database');
 
-class ProductType extends Model {}
-
-ProductType.init(
-  {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    name: { type: DataTypes.STRING },
-  },
-  {
-    sequelize,
-    modelName: 'product_type',
-  }
-);
+const ProductType = sequelize.define('product_type', {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  name: { type: DataTypes.STRING },
+});
 
 module.exports = ProductType;

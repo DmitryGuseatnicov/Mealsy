@@ -1,17 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../database/database');
 
-class Ingredients extends Model {}
+const Ingredient = sequelize.define('ingredient', {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  weight: { type: DataTypes.INTEGER },
+});
 
-Ingredients.init(
-  {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    descriptions: { type: DataTypes.INTEGER },
-  },
-  {
-    sequelize,
-    modelName: 'recept',
-  }
-);
-
-module.exports = Ingredients;
+module.exports = Ingredient;
