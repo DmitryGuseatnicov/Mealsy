@@ -1,14 +1,13 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const { User } = require('../models');
 const ErrorCreator = require('../utils/ErrorCreator');
+const createToken = require('../utils/createToken');
 
-const createToken = (user) => {
-  return jwt.sign({ id: user.id, role: user.role, name: user.name }, '123456', {
-    expiresIn: '24h',
-  });
+const splitUserData = (user) => {
+  const { id, name, dataOfBirth, sex, mail, role } = user;
+  return { id, name, dataOfBirth, sex, mail, role };
 };
 
 const register = async (req, res, next) => {
@@ -30,7 +29,7 @@ const register = async (req, res, next) => {
     const user = await User.create({ name, mail, password: hashPass });
     const token = createToken(user);
 
-    res.status(200).json({ token });
+    res.status(200).json({ token, user: splitUserData(user) });
   } catch (error) {
     next(error);
   }
@@ -56,7 +55,7 @@ const login = async (req, res, next) => {
     }
 
     const token = createToken(user);
-    res.status(200).json({ token });
+    res.status(200).json({ token, user: splitUserData(user) });
   } catch (error) {
     next(error);
   }
@@ -69,11 +68,22 @@ const update = async (req, res, next) => {
       throw ErrorCreator.badRequest(errors.array());
     }
     const { id } = req.user;
+
+    const isUsedMail = await User.findOne({ where: { mail: req.body.mail } });
+
+    if (isUsedMail) {
+      throw ErrorCreator.badRequest({ message: 'Данный email занят' });
+    }
+
+    if (req.body.password) {
+      req.body.password = await bcrypt.hash(req.body.password, 5);
+    }
+
     await User.update(req.body, { where: { id } });
     const user = await User.findOne({ where: { id } });
 
     const token = createToken(user);
-    res.status(200).json({ token });
+    res.status(200).json({ token, user: splitUserData(user) });
   } catch (error) {
     next(error);
   }
@@ -97,8 +107,9 @@ const remove = async (req, res, next) => {
 
 const check = async (req, res, next) => {
   try {
-    const token = createToken(req.user);
-    res.status(200).json({ token });
+    const { user } = req;
+    const token = createToken(user);
+    res.status(200).json({ token, user: splitUserData(user) });
   } catch (error) {
     next(error);
   }
