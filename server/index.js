@@ -10,7 +10,7 @@ const PORT = 5001;
 
 const start = () => {
   try {
-    sequelize.sync({ force: true }).then(() => console.log('db is connected'));
+    sequelize.sync().then(() => console.log('db is connected'));
     const server = express();
 
     server.use(express.json());
