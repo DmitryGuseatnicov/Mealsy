@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+
 const sequelize = require('./database/database');
 const routers = require('./routers');
 // eslint-disable-next-line no-unused-vars
