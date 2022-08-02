@@ -1,11 +1,11 @@
 const express = require('express');
 
-const DishRouter = express.Router();
+const dishRouter = express.Router();
 
-DishRouter.get('/', () => {});
-DishRouter.get('/:dishId', () => {});
-DishRouter.post('/', () => {});
-DishRouter.patch('/:dishId', () => {});
-DishRouter.delete('/:dishId', () => {});
+dishRouter.get('/', () => {});
+dishRouter.get('/:dishId', () => {});
+dishRouter.post('/', () => {});
+dishRouter.patch('/:dishId', () => {});
+dishRouter.delete('/:dishId', () => {});
 
-module.exports = DishRouter;
+module.exports = dishRouter;

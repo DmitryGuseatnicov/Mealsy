@@ -1,10 +1,10 @@
 const express = require('express');
 
-const KitchenTypeRouter = express.Router();
+const kitchenTypeRouter = express.Router();
 
-KitchenTypeRouter.get('/', () => {});
-KitchenTypeRouter.post('/', () => {});
-KitchenTypeRouter.patch('/:kitchenTypeId', () => {});
-KitchenTypeRouter.delete('/:kitchenTypeId', () => {});
+kitchenTypeRouter.get('/', () => {});
+kitchenTypeRouter.post('/', () => {});
+kitchenTypeRouter.patch('/:kitchenTypeId', () => {});
+kitchenTypeRouter.delete('/:kitchenTypeId', () => {});
 
-module.exports = KitchenTypeRouter;
+module.exports = kitchenTypeRouter;

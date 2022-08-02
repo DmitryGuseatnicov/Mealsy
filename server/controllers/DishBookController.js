@@ -53,13 +53,13 @@ const remove = async (req, res, next) => {
     const { bookId } = req.params;
 
     await DishBook.destroy({ where: { userId, id: bookId } });
-    const dishBook = DishBook.findOne({ where: { userId, id: bookId } });
+    const dishBook = await DishBook.findOne({ where: { userId, id: bookId } });
 
     if (dishBook) {
       throw ErrorCreator.badRequest({ message: 'Что-то пошло не так' });
     }
 
-    res.status(200).json(dishBook);
+    res.status(200).json({ message: 'Книга успешно удалена' });
   } catch (error) {
     next(error);
   }
