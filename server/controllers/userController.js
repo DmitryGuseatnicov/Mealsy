@@ -115,12 +115,10 @@ const check = async (req, res, next) => {
   }
 };
 
-const userController = {
+module.exports = {
   register,
   login,
   check,
   update,
   remove,
 };
-
-module.exports = userController;
