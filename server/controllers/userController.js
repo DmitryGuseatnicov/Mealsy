@@ -95,6 +95,7 @@ const remove = async (req, res, next) => {
     await User.destroy({ where: { id } });
 
     const user = await User.findOne({ where: { id } });
+
     if (user) {
       throw ErrorCreator.badRequest({ message: 'Что-то пошло не так' });
     }
@@ -107,7 +108,13 @@ const remove = async (req, res, next) => {
 
 const check = async (req, res, next) => {
   try {
-    const { user } = req;
+    const { id } = req.user;
+    const user = await User.findOne({ where: { id } });
+    if (!user) {
+      throw ErrorCreator.badRequest({
+        message: 'Пользователь не авторизирован',
+      });
+    }
     const token = createToken(user);
     res.status(200).json({ token, user: splitUserData(user) });
   } catch (error) {
