@@ -24,7 +24,7 @@ userRouter.post(
   userController.login
 );
 
-userRouter.get('/auth', authMiddleware, userController.check);
+userRouter.get('/', authMiddleware, userController.check);
 
 // FIX: доделать проверки на остальные параментры
 userRouter.patch(

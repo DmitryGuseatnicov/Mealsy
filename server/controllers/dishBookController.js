@@ -4,8 +4,15 @@ const ErrorCreator = require('../utils/ErrorCreator');
 const getAll = async (req, res, next) => {
   try {
     const { id: userId } = req.user;
-    const dishBook = await DishBook.findAll({ where: { userId } });
-    res.status(200).json(dishBook);
+    const dishBooks = await DishBook.findAll({ where: { userId } });
+
+    if (!dishBooks) {
+      throw ErrorCreator.badRequest({
+        message: 'У вас не создано ни одной кулинароной книги',
+      });
+    }
+
+    res.status(200).json(dishBooks);
   } catch (error) {
     next(error);
   }
@@ -15,7 +22,13 @@ const getOneById = async (req, res, next) => {
   try {
     const { id: userId } = req.user;
     const { bookId } = req.params;
+
     const dishBook = await DishBook.findOne({ where: { userId, id: bookId } });
+
+    if (!dishBook) {
+      throw ErrorCreator.badRequest({ message: 'Данная книга не найдена' });
+    }
+
     res.status(200).json(dishBook);
   } catch (error) {
     next(error);
