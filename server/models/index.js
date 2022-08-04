@@ -1,5 +1,4 @@
 const KitchenType = require('./KitchenType');
-const Dish = require('./Dish');
 const DishBook = require('./DishBook');
 const Favorites = require('./Favorites');
 const Ingredient = require('./Ingredient');
@@ -8,7 +7,7 @@ const Product = require('./Product');
 const ProductType = require('./ProductType');
 const Recept = require('./Recept');
 const User = require('./User');
-const DishKitchenType = require('./DishKitchenType');
+const ReceptKitchenType = require('./ReceptKitchenType');
 
 User.hasMany(DishBook);
 DishBook.belongsTo(User);
@@ -16,17 +15,17 @@ DishBook.belongsTo(User);
 User.hasMany(Favorites);
 Favorites.belongsTo(User);
 
-DishBook.hasMany(Dish);
-Dish.belongsTo(DishBook);
+DishBook.hasMany(Recept);
+Recept.belongsTo(DishBook);
 
-Dish.hasMany(Favorites);
-Favorites.belongsTo(Dish);
+Recept.hasMany(Favorites);
+Favorites.belongsTo(Recept);
 
-Dish.hasOne(Pfc);
-Pfc.belongsTo(Dish);
+Recept.hasOne(Pfc);
+Pfc.belongsTo(Recept);
 
-Dish.hasOne(Recept);
-Recept.belongsTo(Dish);
+/* .hasOne(Recept);
+Recept.belongsTo(Dish); */
 
 Recept.hasMany(Ingredient);
 Ingredient.belongsTo(Recept);
@@ -40,12 +39,11 @@ Pfc.belongsTo(Product);
 ProductType.hasMany(Product);
 Product.belongsTo(ProductType);
 
-Dish.belongsToMany(KitchenType, { through: DishKitchenType });
-KitchenType.belongsToMany(Dish, { through: DishKitchenType });
+Recept.belongsToMany(KitchenType, { through: ReceptKitchenType });
+KitchenType.belongsToMany(Recept, { through: ReceptKitchenType });
 
 module.exports = {
   KitchenType,
-  Dish,
   DishBook,
   Favorites,
   Ingredient,
