@@ -1,6 +1,6 @@
 const express = require('express');
 const authMiddleware = require('../middleware/authMiddleware');
-const dishBookController = require('../controllers1/dishBookController');
+const dishBookController = require('../controllers/dishBookController');
 
 const dishBookRouter = express.Router();
 
