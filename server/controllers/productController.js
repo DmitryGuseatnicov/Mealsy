@@ -1,6 +1,5 @@
-const { validationResult } = require('express-validator');
-
 const { Product, ProductType, Pfc } = require('../models');
+const checkValidation = require('../utils/checkValidation');
 const createFilePath = require('../utils/createFilePath');
 const ErrorCreator = require('../utils/ErrorCreator');
 
@@ -55,10 +54,8 @@ const getById = async (req, res, next) => {
 
 const create = async (req, res, next) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      throw ErrorCreator.badRequest(errors.array());
-    }
+    checkValidation(req);
+
     const {
       name,
       description,
@@ -114,10 +111,8 @@ const create = async (req, res, next) => {
 
 const update = async (req, res, next) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      throw ErrorCreator.badRequest(errors.array());
-    }
+    checkValidation(req);
+
     const { productId: id } = req.params;
     const {
       name,

@@ -1,9 +1,7 @@
-const { validationResult } = require('express-validator');
-
-const createFilePath = require('../utils/createFilePath');
-
 const { ProductType } = require('../models');
+const createFilePath = require('../utils/createFilePath');
 const ErrorCreator = require('../utils/ErrorCreator');
+const checkValidation = require('../utils/checkValidation');
 
 const getAll = async (req, res, next) => {
   try {
@@ -37,10 +35,7 @@ const getOneById = async (req, res, next) => {
 
 const create = async (req, res, next) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty) {
-      throw ErrorCreator.badRequest(errors.array());
-    }
+    checkValidation(req);
 
     const { name } = req.body;
 
@@ -61,10 +56,7 @@ const create = async (req, res, next) => {
 
 const update = async (req, res, next) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty) {
-      throw ErrorCreator.badRequest(errors.array());
-    }
+    checkValidation(req);
 
     const { productTypeId: id } = req.params;
     const { name } = req.body;
