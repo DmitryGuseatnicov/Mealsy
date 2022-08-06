@@ -1,4 +1,5 @@
 const { Op } = require('sequelize');
+const { validationResult } = require('express-validator');
 const uuid = require('uuid');
 const path = require('path');
 
@@ -37,6 +38,11 @@ const getOneById = async (req, res, next) => {
 
 const create = async (req, res, next) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty) {
+      throw ErrorCreator.badRequest(errors.array());
+    }
+
     const { name } = req.body;
     const { img } = req.files ? req.files : {};
 
@@ -64,6 +70,11 @@ const create = async (req, res, next) => {
 
 const update = async (req, res, next) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty) {
+      throw ErrorCreator.badRequest(errors.array());
+    }
+
     const { productTypeId: id } = req.params;
     const { name } = req.body;
     const { img } = req.files ? req.files : {};
