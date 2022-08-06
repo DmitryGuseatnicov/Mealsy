@@ -1,4 +1,3 @@
-const { Op } = require('sequelize');
 const { validationResult } = require('express-validator');
 
 const createFilePath = require('../utils/createFilePath');
@@ -45,11 +44,6 @@ const create = async (req, res, next) => {
 
     const { name } = req.body;
 
-    const isUsedProductType = await ProductType.findOne({ where: { name } });
-    if (isUsedProductType) {
-      throw ErrorCreator.badRequest({ message: 'Данный тип уже существует' });
-    }
-
     const productType = await ProductType.create({
       name,
       img: createFilePath(req),
@@ -57,7 +51,11 @@ const create = async (req, res, next) => {
 
     res.status(200).json(productType);
   } catch (error) {
-    next(error);
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      next(ErrorCreator.badRequest({ message: 'Данный тип уже существует' }));
+    } else {
+      next(error);
+    }
   }
 };
 
@@ -70,13 +68,6 @@ const update = async (req, res, next) => {
 
     const { productTypeId: id } = req.params;
     const { name } = req.body;
-
-    const isUsedProductType = await ProductType.findOne({
-      where: { name, id: { [Op.ne]: id } },
-    });
-    if (isUsedProductType) {
-      throw ErrorCreator.badRequest({ message: 'Данный тип уже существует' });
-    }
 
     const imgPath = createFilePath(req);
     await ProductType.update(
@@ -99,7 +90,11 @@ const update = async (req, res, next) => {
 
     res.status(200).json(productType);
   } catch (error) {
-    next(error);
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      next(ErrorCreator.badRequest({ message: 'Данный тип уже существует' }));
+    } else {
+      next(error);
+    }
   }
 };
 
