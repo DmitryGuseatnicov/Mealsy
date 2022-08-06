@@ -1,7 +1,7 @@
 const { Op } = require('sequelize');
 const { validationResult } = require('express-validator');
-const uuid = require('uuid');
-const path = require('path');
+
+const createFilePath = require('../utils/createFilePath');
 
 const { ProductType } = require('../models');
 const ErrorCreator = require('../utils/ErrorCreator');
@@ -44,22 +44,15 @@ const create = async (req, res, next) => {
     }
 
     const { name } = req.body;
-    const { img } = req.files ? req.files : {};
 
     const isUsedProductType = await ProductType.findOne({ where: { name } });
     if (isUsedProductType) {
       throw ErrorCreator.badRequest({ message: 'Данный тип уже существует' });
     }
 
-    const fileName = `${uuid.v4()}.jpg`;
-
-    if (img) {
-      img.mv(path.resolve(__dirname, '..', 'static', fileName));
-    }
-
     const productType = await ProductType.create({
       name,
-      img: img ? `${req.protocol}://${req.get('host')}/${fileName}` : '',
+      img: createFilePath(req),
     });
 
     res.status(200).json(productType);
@@ -77,7 +70,6 @@ const update = async (req, res, next) => {
 
     const { productTypeId: id } = req.params;
     const { name } = req.body;
-    const { img } = req.files ? req.files : {};
 
     const isUsedProductType = await ProductType.findOne({
       where: { name, id: { [Op.ne]: id } },
@@ -86,16 +78,12 @@ const update = async (req, res, next) => {
       throw ErrorCreator.badRequest({ message: 'Данный тип уже существует' });
     }
 
-    const fileName = `${uuid.v4()}.jpg`;
-    if (img) {
-      img.mv(path.resolve(__dirname, '..', 'static', fileName));
-    }
-
+    const imgPath = createFilePath(req);
     await ProductType.update(
-      img
+      imgPath
         ? {
             name,
-            img: `${req.protocol}://${req.get('host')}/${fileName}`,
+            img: imgPath,
           }
         : {
             name,
