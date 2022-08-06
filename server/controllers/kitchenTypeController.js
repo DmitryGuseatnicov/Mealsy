@@ -1,16 +1,19 @@
 const { KitchenType } = require('../models');
+const checkValidation = require('../utils/checkValidation');
+const createFilePath = require('../utils/createFilePath');
 const ErrorCreator = require('../utils/ErrorCreator');
 
 const getAll = async (req, res, next) => {
   try {
-    const kitchenType = await KitchenType.findAll();
-    if (!kitchenType) {
+    const kitchenTypes = await KitchenType.findAll({ where: req.query });
+    const isKitchenTypesEmpty = kitchenTypes.length <= 0;
+    if (isKitchenTypesEmpty) {
       throw ErrorCreator.badRequest({
         message: 'На данный момент не одного вида кухни не создано',
       });
     }
 
-    res.status(200).json(kitchenType);
+    res.status(200).json(kitchenTypes);
   } catch (error) {
     next(error);
   }
@@ -19,8 +22,9 @@ const getAll = async (req, res, next) => {
 const getOneById = async (req, res, next) => {
   try {
     const { kitchenTypeId: id } = req.params;
-
-    const kitchenType = await KitchenType.findOne({ where: { id } });
+    const kitchenType = await KitchenType.findOne({
+      where: { id },
+    });
 
     if (!kitchenType) {
       throw ErrorCreator.badRequest({
@@ -36,34 +40,54 @@ const getOneById = async (req, res, next) => {
 
 const create = async (req, res, next) => {
   try {
+    checkValidation(req);
+
     const { name } = req.body;
 
-    const isUsedKitchenType = await KitchenType.findOne({ where: { name } });
-
-    if (isUsedKitchenType) {
-      throw ErrorCreator.badRequest({
-        message: 'Такой вариант кухни уже сушетвует ',
-      });
-    }
-
-    const kitchenType = await KitchenType.create({ name });
+    const kitchenType = await KitchenType.create({
+      name,
+      img: createFilePath(req),
+    });
 
     res.status(200).json(kitchenType);
   } catch (error) {
-    next(error);
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      next(ErrorCreator.badRequest({ message: 'Данный тип уже существует' }));
+    } else {
+      next(error);
+    }
   }
 };
 
 const update = async (req, res, next) => {
   try {
+    checkValidation(req);
+
+    const { name } = req.body;
     const { kitchenTypeId: id } = req.params;
 
-    await KitchenType.update(req.body, { where: { id } });
+    const imgPath = createFilePath(req);
+    await KitchenType.update(
+      imgPath
+        ? {
+            name,
+            img: imgPath,
+          }
+        : {
+            name,
+          },
+      { where: { id } }
+    );
+
     const kitchenType = await KitchenType.findOne({ where: { id } });
 
     res.status(200).json(kitchenType);
   } catch (error) {
-    next(error);
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      next(ErrorCreator.badRequest({ message: 'Данный тип уже существует' }));
+    } else {
+      next(error);
+    }
   }
 };
 

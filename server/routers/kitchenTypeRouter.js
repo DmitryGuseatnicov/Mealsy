@@ -1,5 +1,6 @@
 const express = require('express');
 const { body } = require('express-validator');
+
 const kitchenTypeController = require('../controllers/kitchenTypeController');
 const authMiddleware = require('../middleware/authMiddleware');
 const roleMiddleware = require('../middleware/roleMiddleware');
