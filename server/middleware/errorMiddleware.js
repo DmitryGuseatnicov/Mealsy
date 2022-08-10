@@ -10,7 +10,7 @@ const errorMiddleware = (error, req, res, next) => {
   const isArray = Array.isArray(error.message);
 
   return res.status(error.status).json({
-    message: isArray ? errorAdapter(error.message) : [error.message],
+    error: isArray ? errorAdapter(error.message) : [error.message],
     timestamp: Date.now(),
     url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
   });
