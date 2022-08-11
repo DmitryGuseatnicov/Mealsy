@@ -1,0 +1,23 @@
+@import 'shared/styles/fonts.scss';
+@import 'shared/styles/var.scss';
+@import 'shared/styles/resets.scss';
+
+.wrapper {
+  @extend %wrapper;
+}
+
+.main {
+  @extend %main;
+}
+
+.footer {
+  @extend %footer;
+}
+
+.container {
+  @extend %container;
+}
+
+.container-small {
+  @extend %container-small;
+}

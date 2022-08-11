@@ -18,10 +18,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "env-cmd -f .env.development react-scripts start",
+    "build": "env-cmd -f .env.production react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext .tsx --ext .ts",
+    "lint:fix": "eslint . --ext .tsx --ext .ts --fix",
+    "stylelint": "stylelint \"src/**/*.scss\"",
+    "stylelint:fix": "stylelint \"src/**/*.scss\" --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +65,7 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^27.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.3.0"
