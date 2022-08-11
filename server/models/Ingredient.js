@@ -3,7 +3,8 @@ const sequelize = require('../database/database');
 
 const Ingredient = sequelize.define('ingredient', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  weight: { type: DataTypes.INTEGER },
+  value: { type: DataTypes.INTEGER },
+  type: { type: DataTypes.STRING },
 });
 
 module.exports = Ingredient;
