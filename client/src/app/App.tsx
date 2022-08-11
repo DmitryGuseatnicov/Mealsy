@@ -1,8 +1,15 @@
 import React from 'react';
-import './styles/index.scss';
+import { BrowserRouter } from 'react-router-dom';
+
+import Routing from './Routing/Routing';
+import './App.scss';
 
 const App = () => {
-  return <div className="App">start project</div>;
+  return (
+    <BrowserRouter>
+      <Routing />
+    </BrowserRouter>
+  );
 };
 
 export default App;
