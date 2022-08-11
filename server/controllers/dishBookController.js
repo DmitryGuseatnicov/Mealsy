@@ -1,5 +1,3 @@
-const { Op } = require('sequelize');
-
 const { DishBook, Recept } = require('../models');
 const DishBookRecept = require('../models/DishBookRecept');
 const checkValidation = require('../utils/checkValidation');
