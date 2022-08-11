@@ -1,0 +1,9 @@
+.logo {
+  max-width: fit-content;
+  height: fit-content;
+  &__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
