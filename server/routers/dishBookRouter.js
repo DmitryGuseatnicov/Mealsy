@@ -20,6 +20,14 @@ dishBookRouter.post(
   dishBookController.create
 );
 
+dishBookRouter.post('/recept', authMiddleware, dishBookController.addRecept);
+
+dishBookRouter.delete(
+  '/recept',
+  authMiddleware,
+  dishBookController.removeRecept
+);
+
 dishBookRouter.patch(
   '/:bookId',
   body('name')
