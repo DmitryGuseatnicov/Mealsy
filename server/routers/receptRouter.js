@@ -21,6 +21,7 @@ receptRouter.post(
     .toLowerCase()
     .withMessage('Опишите процесс приготовления'),
   body('ingredients').notEmpty().withMessage('Добавте ингридиенты'),
+  body('cookingTime').notEmpty().withMessage('Добавте время приготовления'),
   authMiddleware,
   roleMiddleware,
   receptController.create
@@ -34,6 +35,7 @@ receptRouter.patch(
     .notEmpty()
     .toLowerCase()
     .withMessage('Опишите процесс приготовления'),
+  body('cookingTime').notEmpty().withMessage('Добавте время приготовления'),
   authMiddleware,
   roleMiddleware,
   receptController.update
