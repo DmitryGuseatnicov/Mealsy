@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Logo } from 'shared/ui';
+import { Button, Icon, Logo } from 'shared/ui';
 import './UiKit.scss';
 
 const UiKit = () => {
@@ -11,6 +11,7 @@ const UiKit = () => {
           <Logo />
         </div>
       </div>
+
       <div className="ui-kit__buttons">
         <div className="ui-kit__button-variant">
           <div className="ui-kit__button">
@@ -62,6 +63,66 @@ const UiKit = () => {
               Загрузить еще
             </Button>
           </div>
+        </div>
+      </div>
+
+      <div className="ui-kit__icons">
+        <div className="ui-kit__icon">
+          <Icon name="eye" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="add-box" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="add" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="bookmark" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="bookmark-fill" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="ellipse" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="ellipse-checked" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="eye-slash" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="heart" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="ok" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="pepper" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="remove" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="remove-box" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="search" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="star" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="telegram" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="vk" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="telegram" size="standard" />
+        </div>
+        <div className="ui-kit__icon">
+          <Icon name="task-square" size="standard" />
         </div>
       </div>
     </div>

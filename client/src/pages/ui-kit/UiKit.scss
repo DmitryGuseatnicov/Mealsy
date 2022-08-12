@@ -13,4 +13,15 @@
   &__button {
     margin-right: 30px;
   }
+
+  &__icons {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
 }
