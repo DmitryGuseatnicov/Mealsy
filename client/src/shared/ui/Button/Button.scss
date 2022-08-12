@@ -1,0 +1,67 @@
+@import 'shared/styles/var.scss';
+
+$blockName: "button";
+
+.#{$blockName} {
+  outline: none;
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 10px;
+  @extend %text-main;
+
+  &:hover,
+  &:disabled,
+  &:focus-visible {
+    opacity: 0.5;
+  }
+
+  &_size-small {
+    padding: 19px;
+  }
+
+  &_size-medium {
+    padding: 17px 99px;
+  }
+
+  &_size-big {
+    padding: 19px 128px;
+
+    @extend %text-main-medium;
+  }
+
+  &_color-main {
+    color: $color-second;
+    border-color: $color-second;
+  }
+
+  &_color-second {
+    color: #FFF;
+  }
+
+  &_fill-main {
+    background: $color-second;
+  }
+
+  &_outline-full {
+    border: 1px solid $color-second;
+    
+  }
+
+  &_outline-none {
+    border: 1px solid transparent;
+  }
+
+  &_outline-horizontal {
+    border-radius: 0px;
+    border-top: 1px solid inherit;
+    border-bottom: 1px solid inherit;
+  }
+
+  &_outline-horizontal.button_color-main {
+    border-radius: 0px;
+    border-top: 1px solid $color-second;
+    border-bottom: 1px solid $color-second;
+  }
+}

@@ -1,0 +1,16 @@
+.ui-kit {
+
+  &__buttons {
+    margin-top: 40px;
+  }
+  &__button-variant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  &__button {
+    margin-right: 30px;
+  }
+}
