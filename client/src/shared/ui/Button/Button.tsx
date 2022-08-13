@@ -52,5 +52,5 @@ const Button: FC<IButton> = (props) => {
     </button>
   );
 };
-
+export type { IButton };
 export default Button;

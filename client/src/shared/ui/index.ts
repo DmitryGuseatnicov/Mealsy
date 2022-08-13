@@ -1,5 +1,6 @@
 import Logo from './Logo/Logo';
-import Button from './Button/Button';
-import Icon from './Icon/Icon';
+import Button, { IButton } from './Button/Button';
+import Icon, { IIcon } from './Icon/Icon';
 
+export type { IButton, IIcon };
 export { Logo, Button, Icon };
