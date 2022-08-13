@@ -1,7 +1,44 @@
 import React from 'react';
 
-import { Button, Icon, Logo } from 'shared/ui';
+import { Button, IButton, Icon, IIcon, Logo } from 'shared/ui';
 import './UiKit.scss';
+
+const buttonData: IButton[] = [
+  { size: 'small', color: 'main', fill: 'second', outline: 'full' },
+  { size: 'medium', color: 'main', fill: 'second', outline: 'full' },
+  { size: 'big', color: 'main', fill: 'second', outline: 'full' },
+  { size: 'small', color: 'second', fill: 'main', outline: 'none' },
+  { size: 'medium', color: 'second', fill: 'main', outline: 'none' },
+  { size: 'big', color: 'second', fill: 'main', outline: 'none' },
+  { size: 'small', color: 'main', fill: 'second', outline: 'horizontal' },
+  { size: 'medium', color: 'main', fill: 'second', outline: 'horizontal' },
+  { size: 'big', color: 'main', fill: 'second', outline: 'horizontal' }
+];
+
+const iconVariants: IIcon[] = [
+  { name: 'add', size: 'standard' },
+  { name: 'add-box', size: 'standard' },
+  { name: 'arrow-down', size: 'standard' },
+  { name: 'bookmark', size: 'standard' },
+  { name: 'bookmark-fill', size: 'standard' },
+  { name: 'edit', size: 'standard' },
+  { name: 'ellipse', size: 'standard' },
+  { name: 'ellipse-checked', size: 'standard' },
+  { name: 'eye', size: 'standard' },
+  { name: 'eye-slash', size: 'standard' },
+  { name: 'heart', size: 'standard' },
+  { name: 'ok', size: 'standard' },
+  { name: 'pepper', size: 'standard' },
+  { name: 'remove', size: 'standard' },
+  { name: 'remove-box', size: 'standard' },
+  { name: 'search', size: 'standard' },
+  { name: 'settings', size: 'standard' },
+  { name: 'star', size: 'standard' },
+  { name: 'task-square', size: 'standard' },
+  { name: 'telegram', size: 'standard' },
+  { name: 'vk', size: 'standard' },
+  { name: 'whatsapp', size: 'standard' }
+];
 
 const UiKit = () => {
   return (
@@ -14,116 +51,40 @@ const UiKit = () => {
 
       <div className="ui-kit__buttons">
         <div className="ui-kit__button-variant">
-          <div className="ui-kit__button">
-            <Button size="small" color="main" fill="second" outline="full">
-              Добавить все
-            </Button>
-          </div>
-          <div className="ui-kit__button">
-            <Button size="medium" color="main" fill="second" outline="full">
-              Применить
-            </Button>
-          </div>
-          <div className="ui-kit__button">
-            <Button size="big" color="main" fill="second" outline="full">
-              Загрузить еще
-            </Button>
-          </div>
+          {buttonData.slice(0, 3).map((btn) => (
+            <div className="ui-kit__button" key={Math.random()}>
+              <Button size={btn.size} color={btn.color} fill={btn.fill} outline={btn.outline}>
+                Добавить все
+              </Button>
+            </div>
+          ))}
         </div>
         <div className="ui-kit__button-variant">
-          <div className="ui-kit__button">
-            <Button size="small" color="second" fill="main" outline="none">
-              Добавить все
-            </Button>
-          </div>
-          <div className="ui-kit__button">
-            <Button size="medium" color="second" fill="main" outline="none">
-              Применить
-            </Button>
-          </div>
-          <div className="ui-kit__button">
-            <Button size="big" color="second" fill="main" outline="none">
-              Загрузить еще
-            </Button>
-          </div>
+          {buttonData.slice(3, 6).map((btn) => (
+            <div className="ui-kit__button" key={Math.random()}>
+              <Button size={btn.size} color={btn.color} fill={btn.fill} outline={btn.outline}>
+                Добавить все
+              </Button>
+            </div>
+          ))}
         </div>
         <div className="ui-kit__button-variant">
-          <div className="ui-kit__button">
-            <Button size="small" color="main" fill="second" outline="horizontal">
-              Добавить все
-            </Button>
-          </div>
-          <div className="ui-kit__button">
-            <Button size="medium" color="main" fill="second" outline="horizontal">
-              Применить
-            </Button>
-          </div>
-          <div className="ui-kit__button">
-            <Button size="big" color="main" fill="second" outline="horizontal">
-              Загрузить еще
-            </Button>
-          </div>
+          {buttonData.slice(6, 9).map((btn) => (
+            <div className="ui-kit__button" key={Math.random()}>
+              <Button size={btn.size} color={btn.color} fill={btn.fill} outline={btn.outline}>
+                Добавить все
+              </Button>
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="ui-kit__icons">
-        <div className="ui-kit__icon">
-          <Icon name="eye" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="add-box" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="add" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="bookmark" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="bookmark-fill" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="ellipse" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="ellipse-checked" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="eye-slash" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="heart" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="ok" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="pepper" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="remove" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="remove-box" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="search" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="star" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="telegram" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="vk" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="telegram" size="standard" />
-        </div>
-        <div className="ui-kit__icon">
-          <Icon name="task-square" size="standard" />
-        </div>
+        {iconVariants.map((icon) => (
+          <div className="ui-kit__icon">
+            <Icon name={icon.name} size={icon.size} />
+          </div>
+        ))}
       </div>
     </div>
   );
