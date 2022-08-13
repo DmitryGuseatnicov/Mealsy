@@ -12,7 +12,8 @@ const colorVariants = {
   main: '#67bb5a',
   danger: '#FD3B3B',
   rare: '#F7931E',
-  lighter: '#FFFFF'
+  lighter: '#FFFFF',
+  dark: '#1C1F1D'
 };
 
 interface IIcon {
@@ -33,4 +34,5 @@ const Icon: FC<IIcon> = (props) => {
   );
 };
 
+export type { IIcon };
 export default Icon;
