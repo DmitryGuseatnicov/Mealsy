@@ -1,0 +1,19 @@
+@import 'shared/styles/var.scss';
+
+.title {
+  &_small {
+    @extend %text-main;
+  }
+
+  &_medium {
+    @extend %text-main-medium;
+  }
+
+  &_big {
+    @extend %text-main-big;
+  }
+
+  &_huge {
+    @extend %text-main-huge;
+  }
+}

@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { Button, IButton, Icon, IIcon, Logo } from 'shared/ui';
+import { Button, IButton, Icon, IIcon, ITitle, Logo, Title } from 'shared/ui';
 import './UiKit.scss';
+
+const titleVariants: ITitle[] = [
+  { level: 5, size: 'huge' },
+  { level: 5, size: 'big' },
+  { level: 5, size: 'medium' },
+  { level: 5, size: 'small' }
+];
 
 const buttonData: IButton[] = [
   { size: 'small', color: 'main', fill: 'second', outline: 'full' },
@@ -48,7 +55,15 @@ const UiKit = () => {
           <Logo />
         </div>
       </div>
-
+      <div className="ui-kit__titles">
+        {titleVariants.map((title) => (
+          <div className="ui-kit__title" key={Math.random()}>
+            <Title level={title.level} size={title.size}>
+              Заголовок
+            </Title>
+          </div>
+        ))}
+      </div>
       <div className="ui-kit__buttons">
         <div className="ui-kit__button-variant">
           {buttonData.slice(0, 3).map((btn) => (
@@ -78,10 +93,9 @@ const UiKit = () => {
           ))}
         </div>
       </div>
-
       <div className="ui-kit__icons">
         {iconVariants.map((icon) => (
-          <div className="ui-kit__icon">
+          <div className="ui-kit__icon" key={Math.random()}>
             <Icon name={icon.name} size={icon.size} />
           </div>
         ))}

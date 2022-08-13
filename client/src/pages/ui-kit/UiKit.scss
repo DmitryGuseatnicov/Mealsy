@@ -1,4 +1,11 @@
 .ui-kit {
+  &__titles {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
   &__buttons {
     margin-top: 40px;
   }
