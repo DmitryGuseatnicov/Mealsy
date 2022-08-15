@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, IButton, Icon, IIcon, ITitle, Logo, Title } from 'shared/ui';
+import { Button, IButton, Icon, IIcon, IInput, Input, ITitle, Logo, Title } from 'shared/ui';
 import './UiKit.scss';
 
 const titleVariants: ITitle[] = [
@@ -45,6 +45,51 @@ const iconVariants: IIcon[] = [
   { name: 'telegram', size: 'standard' },
   { name: 'vk', size: 'standard' },
   { name: 'whatsapp', size: 'standard' }
+];
+
+const inputVariants: IInput[] = [
+  {
+    label: 'Default',
+    placeholder: 'Text',
+    name: 'name',
+    type: 'text',
+    status: 'default',
+    message: 'какое-то сообщение'
+  },
+  {
+    label: 'Positive',
+    placeholder: 'Text',
+    name: 'name',
+    type: 'text',
+    status: 'positive',
+    message: 'какое-то сообщение'
+  },
+  {
+    label: 'Error',
+    placeholder: 'Text',
+    name: 'name',
+    type: 'text',
+    status: 'error',
+    message: 'какое-то сообщение'
+  },
+  {
+    placeholder: 'Text',
+    name: 'name',
+    type: 'text',
+    children: <Icon name="eye" size="standard" />
+  },
+  {
+    placeholder: 'Text',
+    name: 'name',
+    type: 'text',
+    children: <Icon name="arrow-down" size="standard" />
+  },
+  {
+    placeholder: 'Text',
+    name: 'name',
+    type: 'text',
+    children: <Icon name="edit" size="standard" />
+  }
 ];
 
 const UiKit = () => {
@@ -97,6 +142,21 @@ const UiKit = () => {
         {iconVariants.map((icon) => (
           <div className="ui-kit__icon" key={Math.random()}>
             <Icon name={icon.name} size={icon.size} />
+          </div>
+        ))}
+      </div>
+      <div className="ui-kit__inputs">
+        {inputVariants.map((input) => (
+          <div className="ui-kit__input" key={Math.random()}>
+            <Input
+              name={input.name}
+              type={input.type}
+              placeholder={input.placeholder}
+              label={input.label}
+              status={input.status}
+              message={input.message}>
+              {input.children}
+            </Input>
           </div>
         ))}
       </div>

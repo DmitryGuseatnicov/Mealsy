@@ -32,4 +32,18 @@
   &__icon {
     margin-right: 10px;
   }
+
+  &__inputs {
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__input {
+    margin-top: 40px;
+    width: 25%;
+    flex-grow: 1;
+    margin-right: 30px;
+  }
 }

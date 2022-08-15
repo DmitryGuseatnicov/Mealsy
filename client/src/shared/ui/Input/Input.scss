@@ -1,0 +1,85 @@
+@import 'shared/styles/var.scss';
+
+$blockName: 'input';
+
+.#{$blockName} {
+  position: relative;
+  width: 100%;
+
+  &__container {
+    width: inherit;
+  }
+
+  &__input {
+    outline: none;
+    width: inherit;
+    padding: 13px 20px;
+    border: 1px solid $color-main-light;
+    @extend %text-main-small;
+
+    &::placeholder {
+      color: $color-main-light;
+
+      @extend %text-main;
+    }
+
+    &:hover {
+      border-color: $color-main;
+    }
+
+    &:focus {
+      border-color: $color-second;
+    }
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__icon {
+    border: none;
+    background: inherit;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    cursor: pointer;
+    outline: none;
+
+    &:focus-visible {
+      opacity: 0.5;
+    }
+  }
+
+  &__message {
+    position: absolute;
+    left: 0px;
+    @extend %text-main-small;
+  }
+
+  &_status-error {
+    .#{$blockName} {
+      &__input {
+        color: $color-danger;
+        border-color: $color-danger;
+      }
+    }
+  }
+
+  &_status-positive {
+    .#{$blockName} {
+      &__input {
+        color: $color-main;
+        border-color: $color-second;
+      }
+    }
+  }
+
+  &_with-icon {
+    .#{$blockName} {
+      &__input {
+        padding-right: 40px;
+      }
+    }
+  }
+}
