@@ -1,8 +1,8 @@
 @import 'shared/styles/var.scss';
 
-$blockName: 'button';
+$block-name: 'button';
 
-.#{$blockName} {
+.#{$block-name} {
   outline: none;
   border: none;
   background: transparent;
@@ -59,7 +59,7 @@ $blockName: 'button';
     border-bottom: 1px solid inherit;
   }
 
-  &_outline-horizontal.button_color-main {
+  &_outline-horizontal.#{$block-name}_color-main {
     border-radius: 0;
     border-top: 1px solid $color-second;
     border-bottom: 1px solid $color-second;

@@ -1,13 +1,14 @@
 @import 'shared/styles/var.scss';
 
-$blockName: 'input';
+$block-name: 'input';
 
-.#{$blockName} {
+.#{$block-name} {
   position: relative;
   width: 100%;
 
   &__container {
     width: inherit;
+    position: relative;
   }
 
   &__input {
@@ -15,6 +16,7 @@ $blockName: 'input';
     width: inherit;
     padding: 13px 20px;
     border: 1px solid $color-main-light;
+
     @extend %text-main-small;
 
     &::placeholder {
@@ -30,10 +32,6 @@ $blockName: 'input';
     &:focus {
       border-color: $color-second;
     }
-  }
-
-  &__container {
-    position: relative;
   }
 
   &__icon {
@@ -53,12 +51,13 @@ $blockName: 'input';
 
   &__message {
     position: absolute;
-    left: 0px;
+    left: 0;
+
     @extend %text-main-small;
   }
 
   &_status-error {
-    .#{$blockName} {
+    .#{$block-name} {
       &__input {
         color: $color-danger;
         border-color: $color-danger;
@@ -67,7 +66,7 @@ $blockName: 'input';
   }
 
   &_status-positive {
-    .#{$blockName} {
+    .#{$block-name} {
       &__input {
         color: $color-main;
         border-color: $color-second;
@@ -76,7 +75,7 @@ $blockName: 'input';
   }
 
   &_with-icon {
-    .#{$blockName} {
+    .#{$block-name} {
       &__input {
         padding-right: 40px;
       }
