@@ -6,6 +6,11 @@
     align-items: center;
   }
 
+  &__block-title {
+    margin-top: 60px;
+    border-bottom: 1px solid #000;
+  }
+
   &__buttons {
     margin-top: 40px;
   }
@@ -34,7 +39,6 @@
   }
 
   &__inputs {
-    margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

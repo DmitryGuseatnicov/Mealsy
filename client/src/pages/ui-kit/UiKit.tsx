@@ -109,6 +109,11 @@ const UiKit = () => {
           </div>
         ))}
       </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Buttons
+        </Title>
+      </div>
       <div className="ui-kit__buttons">
         <div className="ui-kit__button-variant">
           {buttonData.slice(0, 3).map((btn) => (
@@ -138,12 +143,22 @@ const UiKit = () => {
           ))}
         </div>
       </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Icons
+        </Title>
+      </div>
       <div className="ui-kit__icons">
         {iconVariants.map((icon) => (
           <div className="ui-kit__icon" key={Math.random()}>
             <Icon name={icon.name} size={icon.size} />
           </div>
         ))}
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Inputs
+        </Title>
       </div>
       <div className="ui-kit__inputs">
         {inputVariants.map((input) => (
