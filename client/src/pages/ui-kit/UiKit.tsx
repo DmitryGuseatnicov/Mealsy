@@ -104,10 +104,15 @@ const inputVariants: IInput[] = [
 ];
 
 const UiKit = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [value, setValue] = useState('');
-  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value);
+  const [simpleSelectValue, setSimpleSelectValue] = useState('');
+  const [sortValue, setSortValue] = useState('Кухня');
+
+  const handleSimpleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSimpleSelectValue(e.target.value);
+  };
+
+  const handleSortSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortValue(e.target.value);
   };
   return (
     <div className="ui-kit">
@@ -199,9 +204,10 @@ const UiKit = () => {
       <div className="ui-kit__dropdowns">
         <div className="ui-kit__dropdown-select">
           <Select
-            value={value}
-            onChange={onChangeHandler}
-            name="some"
+            value={simpleSelectValue}
+            onChange={handleSimpleSelectChange}
+            name="number"
+            label="Simple-select"
             placeholder="Выбери число"
             items={[
               {
@@ -227,6 +233,34 @@ const UiKit = () => {
               {
                 value: 'Шесть',
                 text: 'Шесть'
+              }
+            ]}
+          />
+        </div>
+        <div className="ui-kit__dropdown-select">
+          <Select
+            value={sortValue}
+            onChange={handleSortSelectChange}
+            name="number"
+            label="сортировать по"
+            type="sort"
+            placeholder="Выбери число"
+            items={[
+              {
+                value: 'Восточноевропейская кухня',
+                text: 'Восточноевропейская кухня'
+              },
+              {
+                value: 'Азиатская кухня',
+                text: 'Азиатская кухня'
+              },
+              {
+                value: 'Французская кухня',
+                text: 'Французская кухня'
+              },
+              {
+                value: 'Немецкая кухня',
+                text: 'Немецкая кухня'
               }
             ]}
           />

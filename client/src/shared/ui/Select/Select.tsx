@@ -9,19 +9,21 @@ interface ISelectItemData {
   value: string;
 }
 
-interface ISelect {
-  name: string;
-  value?: string;
-  placeholder?: string;
-  onChange: (e: any) => void;
-  items?: ISelectItemData[];
-}
-
 interface ISelectItem {
   children: React.ReactNode;
   value: string;
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
   onKeyDown?: (e: React.KeyboardEvent<HTMLElement>) => void;
+}
+
+interface ISelect {
+  name: string;
+  value?: string;
+  label?: string;
+  placeholder?: string;
+  type?: 'simple' | 'sort';
+  onChange: (e: any) => void;
+  items?: ISelectItemData[];
 }
 
 const SelectItem: FC<ISelectItem> = (props) => {
@@ -40,7 +42,7 @@ const SelectItem: FC<ISelectItem> = (props) => {
 };
 
 const Select: FC<ISelect> = (props) => {
-  const { name, items, value, placeholder, onChange } = props;
+  const { name, items, value, placeholder, label, onChange, type = 'simple' } = props;
 
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -116,20 +118,43 @@ const Select: FC<ISelect> = (props) => {
 
   return (
     <div className={classes} ref={ref}>
-      <div className="select__input">
-        <Input
-          name={name}
-          type="text"
-          value={value}
-          readonly
-          status={isOpen ? 'positive' : 'default'}
-          onChange={onChange}
-          placeholder={placeholder}
-          onIconClick={handleSelectInputClick}
-          onClick={handleSelectInputClick}>
-          <Icon name="arrow-down" />
-        </Input>
-      </div>
+      {type === 'simple' && (
+        <div className="select__input">
+          <Input
+            name={name}
+            type="text"
+            value={value}
+            label={label}
+            readonly
+            status={isOpen ? 'positive' : 'default'}
+            onChange={onChange}
+            placeholder={placeholder}
+            onIconClick={handleSelectInputClick}
+            onClick={handleSelectInputClick}>
+            <Icon name="arrow-down" />
+          </Input>
+        </div>
+      )}
+      {type === 'sort' && (
+        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+        <label className="select__label">
+          {label && <span className="select__label-text">{label}:</span>}
+          <input
+            type="text"
+            className="select__sort-input"
+            readOnly
+            value={value}
+            onChange={onChange}
+            onClick={handleSelectInputClick}
+          />
+          <button
+            className="select__sort-input-icon"
+            type="button"
+            onClick={handleSelectInputClick}>
+            <Icon name="arrow-down" />
+          </button>
+        </label>
+      )}
       <div className="select__items">
         {items?.map((item) => (
           <SelectItem

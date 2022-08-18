@@ -7,6 +7,32 @@
     cursor: pointer;
   }
 
+  &__sort-input {
+    background: inherit;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: $color-second-light;
+    padding-left: 10px;
+    width: 50%;
+    @extend %text-main;
+  }
+
+  &__label {
+    display: inline-flex;
+    position: relative;
+  }
+
+  &__label-text {
+    white-space: nowrap;
+  }
+
+  &__sort-input-icon {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+  }
+
   &__items {
     position: absolute;
     left: 0;

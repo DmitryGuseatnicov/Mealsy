@@ -53,6 +53,9 @@
 
   &__dropdowns {
     margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
   &__dropdown-select {
