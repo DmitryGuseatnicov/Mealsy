@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { FC } from 'react';
+import InputMask from 'react-input-mask';
 import './Input.scss';
 
 interface IInput {
@@ -12,6 +13,7 @@ interface IInput {
   label?: string;
   id?: string;
   readonly?: boolean;
+  mask?: string;
   onIconClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
@@ -37,6 +39,7 @@ const Input: FC<IInput> = (props) => {
     id,
     message,
     readonly,
+    mask,
     onIconClick,
     onFocus,
     onBlur,
@@ -59,20 +62,39 @@ const Input: FC<IInput> = (props) => {
     <label className={classes}>
       <span className="input__label">{label}</span>
       <div className="input__container">
-        <input
-          className="input__input"
-          value={value}
-          placeholder={placeholder}
-          name={name}
-          type={type}
-          id={id}
-          readOnly={readonly}
-          onClick={onClick}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onChange={onChange}
-          onInput={onInput}
-        />
+        {mask ? (
+          <InputMask
+            className="input__input"
+            value={value}
+            maskPlaceholder={placeholder}
+            placeholder={placeholder}
+            name={name}
+            type={type}
+            id={id}
+            mask={mask}
+            readOnly={readonly}
+            onClick={onClick}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={onChange}
+            onInput={onInput}
+          />
+        ) : (
+          <input
+            className="input__input"
+            value={value}
+            placeholder={placeholder}
+            name={name}
+            type={type}
+            id={id}
+            readOnly={readonly}
+            onClick={onClick}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={onChange}
+            onInput={onInput}
+          />
+        )}
         {children && (
           <button className="input__icon" onClick={onIconClick} type="button">
             {children}
