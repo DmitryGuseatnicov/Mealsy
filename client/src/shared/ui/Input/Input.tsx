@@ -11,7 +11,9 @@ interface IInput {
   status?: 'default' | 'error' | 'positive';
   label?: string;
   id?: string;
+  readonly?: boolean;
   onIconClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -34,16 +36,23 @@ const Input: FC<IInput> = (props) => {
     label,
     id,
     message,
+    readonly,
     onIconClick,
     onFocus,
     onBlur,
     onChange,
     onInput,
+    onClick,
     children,
     status = 'default'
   } = props;
 
-  const classes = ['input', statusVariants[status], children ? 'input_with-icon' : ''].join(' ');
+  const classes = [
+    'input',
+    statusVariants[status],
+    children ? 'input_with-icon' : '',
+    readonly ? 'input_readonly' : ''
+  ].join(' ');
 
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -57,6 +66,8 @@ const Input: FC<IInput> = (props) => {
           name={name}
           type={type}
           id={id}
+          readOnly={readonly}
+          onClick={onClick}
           onFocus={onFocus}
           onBlur={onBlur}
           onChange={onChange}
