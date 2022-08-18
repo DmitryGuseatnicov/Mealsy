@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Button, IButton, Icon, IIcon, IInput, Input, ITitle, Logo, Title } from 'shared/ui';
+import {
+  Button,
+  IButton,
+  Icon,
+  IIcon,
+  IInput,
+  Input,
+  ITitle,
+  Logo,
+  Title,
+  Select
+} from 'shared/ui';
 import './UiKit.scss';
 
 const titleVariants: ITitle[] = [
@@ -93,6 +104,11 @@ const inputVariants: IInput[] = [
 ];
 
 const UiKit = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [value, setValue] = useState('');
+  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setValue(e.target.value);
+  };
   return (
     <div className="ui-kit">
       <div className="ui-kit__graphic">
@@ -174,6 +190,35 @@ const UiKit = () => {
             </Input>
           </div>
         ))}
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Dropdowns
+        </Title>
+      </div>
+      <div className="ui-kit__dropdowns">
+        <div className="ui-kit__dropdown-select">
+          <Select
+            value={value}
+            onChange={onChangeHandler}
+            name="some"
+            placeholder="Выбери число"
+            items={[
+              {
+                value: 'Один',
+                text: 'Один'
+              },
+              {
+                value: 'Два',
+                text: 'Два'
+              },
+              {
+                value: 'Три',
+                text: 'Три'
+              }
+            ]}
+          />
+        </div>
       </div>
     </div>
   );

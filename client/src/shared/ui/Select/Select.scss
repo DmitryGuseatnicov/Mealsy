@@ -1,0 +1,42 @@
+@import 'shared/styles/var.scss';
+
+.select {
+  position: relative;
+
+  &__input {
+    cursor: pointer;
+  }
+
+  &__items {
+    position: absolute;
+    left: 0;
+    display: none;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(66, 59, 59, 0.1);
+    border-radius: 5px;
+  }
+
+  &__item {
+    padding: 15px 30px;
+    outline: none;
+    cursor: pointer;
+
+    @extend %text-main-small;;
+
+    &:hover,
+    &:focus-visible {
+      background: $color-second-light;
+      color: #FFFFFF;
+      font-weight: 700;
+    } 
+  }
+
+  &_open {
+    .select {
+      &__items {
+        display: block;
+      }
+    }
+  }
+}
