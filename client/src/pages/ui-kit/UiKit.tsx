@@ -10,7 +10,8 @@ import {
   ITitle,
   Logo,
   Title,
-  Select
+  Select,
+  DateDropdown
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -106,6 +107,8 @@ const inputVariants: IInput[] = [
 const UiKit = () => {
   const [simpleSelectValue, setSimpleSelectValue] = useState('');
   const [sortValue, setSortValue] = useState('Кухня');
+  // eslint-disable-next-line no-unused-vars
+  const [date, setDate] = useState<string>('');
 
   const handleSimpleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSimpleSelectValue(e.target.value);
@@ -114,6 +117,15 @@ const UiKit = () => {
   const handleSortSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortValue(e.target.value);
   };
+
+  const handleDateDropdownDateClick = (e: Date) => {
+    setDate(e.toLocaleDateString());
+  };
+
+  const handleDateDropdownInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDate(e.target.value);
+  };
+
   return (
     <div className="ui-kit">
       <div className="ui-kit__graphic">
@@ -235,6 +247,14 @@ const UiKit = () => {
                 text: 'Шесть'
               }
             ]}
+          />
+        </div>
+        <div className="ui-kit__dropdown-select">
+          <DateDropdown
+            value={date}
+            label="Date-picker"
+            onChange={handleDateDropdownInputChange}
+            onDateClick={handleDateDropdownDateClick}
           />
         </div>
         <div className="ui-kit__dropdown-select">

@@ -14,6 +14,7 @@ interface IInput {
   id?: string;
   readonly?: boolean;
   mask?: string;
+  inputRef?: React.ForwardedRef<any>;
   onIconClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
@@ -40,6 +41,7 @@ const Input: FC<IInput> = (props) => {
     message,
     readonly,
     mask,
+    inputRef,
     onIconClick,
     onFocus,
     onBlur,
@@ -57,6 +59,8 @@ const Input: FC<IInput> = (props) => {
     readonly ? 'input_readonly' : ''
   ].join(' ');
 
+  const maskplaceholder = placeholder;
+
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={classes}>
@@ -66,12 +70,11 @@ const Input: FC<IInput> = (props) => {
           <InputMask
             className="input__input"
             value={value}
-            maskPlaceholder={placeholder}
-            placeholder={placeholder}
             name={name}
             type={type}
             id={id}
             mask={mask}
+            placeholder={placeholder}
             readOnly={readonly}
             onClick={onClick}
             onFocus={onFocus}
@@ -87,6 +90,7 @@ const Input: FC<IInput> = (props) => {
             name={name}
             type={type}
             id={id}
+            ref={inputRef}
             readOnly={readonly}
             onClick={onClick}
             onFocus={onFocus}

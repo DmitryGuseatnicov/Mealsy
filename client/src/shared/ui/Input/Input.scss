@@ -24,7 +24,7 @@ $block-name: 'input';
     &::placeholder {
       color: $color-main-light;
 
-      @extend %text-main;
+      @extend %text-main-small;
     }
 
     &:hover {
