@@ -2,6 +2,7 @@
 
 .date-dropdown {
   width: 320px;
+
   &__calendar-container {
     position: relative;
   }
@@ -14,11 +15,10 @@
 .react-datepicker {
   position: relative;
   width: 320px;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 14px rgba(66, 59, 59, 0.1);
+  background: #fff;
+  box-shadow: 0 4px 14px rgb(66 59 59 / 10%);
   border-radius: 4px;
   padding: 30px;
-
 
   &__navigation {
     position: absolute;
@@ -34,7 +34,6 @@
 
     &--next {
       right: 10%;
-      //transform: rotate(-90deg);
       cursor: pointer;
     }
   }
@@ -57,7 +56,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    color: rgba(0, 32, 51, 0.3);
+    color: rgb(0 32 51 / 30%);
   }
 
   &__week {
@@ -82,11 +81,11 @@
     &:hover,
     &:focus-visible {
       background: $color-second;
-      color: #FFFFFF;
+      color: #fff;
     }
 
     &--outside-month {
-      color: rgba(0, 32, 51, 0.26);
+      color: rgb(0 32 51 / 26%);
     }
   }
 
@@ -95,7 +94,6 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
   }
-
 
   &__header {
     width: 100%;
