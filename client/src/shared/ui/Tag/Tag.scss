@@ -1,0 +1,23 @@
+@import 'shared/styles/var.scss';
+
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5px;
+
+  &_color-main {
+    background: $color-main-light;
+  }
+
+  &_color-second {
+    background: $color-second-light;
+  }
+
+  &__button {
+    margin-left: 5px;
+    border: none;
+    background: inherit;
+  }
+}
