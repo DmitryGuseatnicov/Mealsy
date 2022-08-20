@@ -349,6 +349,16 @@ const svgVariants = {
         fill={color}
       />
     </svg>
+  ),
+  close: (color: string) => (
+    <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5.86292 7L0 12.8629L1.13708 14L7 8.13708L12.8629 14L14 12.8629L8.13708 7L14 1.13708L12.8629 0L7 5.86292L1.13708 0L0 1.13708L5.86292 7Z"
+        fill={color}
+      />
+    </svg>
   )
 };
 
