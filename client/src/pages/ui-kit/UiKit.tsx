@@ -11,7 +11,8 @@ import {
   Logo,
   Title,
   Select,
-  DateDropdown
+  DateDropdown,
+  TagCollector
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -104,19 +105,32 @@ const inputVariants: IInput[] = [
   }
 ];
 
+const tagsData: any[] = [
+  'Курица',
+  'Молоко',
+  'Сыр',
+  'Куриное яйцо',
+  'Абрикос',
+  'Авокадо',
+  'Баклажан',
+  'Баварские сосиски',
+  'Лосось'
+];
+
 const UiKit = () => {
   const [simpleSelectValue, setSimpleSelectValue] = useState('');
-  const [sortValue, setSortValue] = useState('Кухня');
-  // eslint-disable-next-line no-unused-vars
-  const [date, setDate] = useState<string>('');
 
   const handleSimpleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSimpleSelectValue(e.target.value);
   };
 
+  const [sortValue, setSortValue] = useState('Кухня');
+
   const handleSortSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortValue(e.target.value);
   };
+
+  const [date, setDate] = useState<string>('');
 
   const handleDateDropdownDateClick = (e: Date) => {
     setDate(e.toLocaleDateString());
@@ -124,6 +138,32 @@ const UiKit = () => {
 
   const handleDateDropdownInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDate(e.target.value);
+  };
+
+  const [tagCollectorValue, setTagCollectorValue] = useState('');
+  const [tagState, setTagState] = useState<string[]>([]);
+  const [matchTags, setMatchTags] = useState<string[]>([]);
+
+  const handleTagCollectorInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTagCollectorValue(e.target.value);
+
+    if (e.target.value.length > 1) {
+      setMatchTags(tagsData.filter((tag) => tag.toLowerCase().match(e.target.value.toLowerCase())));
+    } else {
+      setMatchTags([]);
+    }
+  };
+
+  const handleTagCollectorSearchItemClick = (e: { value: string | undefined }) => {
+    if (e.value) {
+      setTagState([...tagState.filter((tag) => tag !== e.value), e.value]);
+    }
+    setTagCollectorValue('');
+    setMatchTags([]);
+  };
+
+  const handleTagButtonClick = (e: { value: string }) => {
+    setTagState(tagState.filter((tag) => tag !== e.value));
   };
 
   return (
@@ -283,6 +323,24 @@ const UiKit = () => {
                 text: 'Немецкая кухня'
               }
             ]}
+          />
+        </div>
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Tag & Tag-Collector
+        </Title>
+      </div>
+      <div className="ui-kit__tags-block">
+        <div className="ui-kit__tags-block-item">
+          <TagCollector
+            buttonText="Ингредиент"
+            placeholder="Введите ингредиент"
+            searchValue={tagCollectorValue}
+            tags={tagState.map((tag) => ({ value: tag, onClick: handleTagButtonClick }))}
+            searchItems={matchTags}
+            onSearchValueChange={handleTagCollectorInputChange}
+            onSelect={handleTagCollectorSearchItemClick}
           />
         </div>
       </div>

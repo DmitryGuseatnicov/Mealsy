@@ -1,0 +1,80 @@
+@import 'shared/styles/var.scss';
+
+.tag-collector {
+  position: relative;
+  border: 1px solid $color-second;
+  border-radius: 5px;
+  max-width: 444px;
+  min-width: 200px;
+  background: #fff;
+
+  &__tags {
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__tag {
+    margin-top: 5px;
+    margin-right: 7px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: inherit;
+    border: none;
+    padding: 22px 34px;
+  }
+
+  &__button-text {
+    padding-left: 12px;
+    color: $color-main-light;
+
+    @extend %text-main;
+  }
+
+  &__input-container {
+    border-top: 1px solid $color-second;
+    display: flex;
+    padding: 8px 34px;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    background: inherit;
+    padding-left: 12px;
+    width: 100%;
+
+    @extend %text-main;
+
+    &::placeholder {
+      color: $color-main-light;
+
+      @extend %text-main;
+    }
+  }
+
+  &__search-items {
+    margin-top: 5px;
+    border-radius: 2px;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 14px rgb(66 59 59 / 10%);
+  }
+
+  &__search-item {
+    cursor: pointer;
+    outline: none;
+    padding: 5px 36px;
+
+    &:hover,
+    &:focus-visible {
+      background: $color-second-light;
+      color: #fff;
+    }
+  }
+}

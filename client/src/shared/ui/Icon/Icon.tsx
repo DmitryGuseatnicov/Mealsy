@@ -12,7 +12,7 @@ const colorVariants = {
   main: '#67bb5a',
   danger: '#FD3B3B',
   rare: '#F7931E',
-  lighter: '#FFFFF',
+  lighter: '#FFFFFF',
   dark: '#1C1F1D'
 };
 

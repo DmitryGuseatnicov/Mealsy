@@ -1,4 +1,6 @@
 .ui-kit {
+  padding: 100px 0;
+
   &__titles {
     margin-top: 40px;
     display: flex;
@@ -60,5 +62,9 @@
 
   &__dropdown-select {
     width: 300px;
+  }
+
+  &__tags-block{
+    margin-top: 40px;
   }
 }
