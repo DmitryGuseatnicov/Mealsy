@@ -59,8 +59,6 @@ const Input: FC<IInput> = (props) => {
     readonly ? 'input_readonly' : ''
   ].join(' ');
 
-  const maskplaceholder = placeholder;
-
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={classes}>

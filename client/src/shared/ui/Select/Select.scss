@@ -36,6 +36,7 @@
 
   &__items {
     position: absolute;
+    z-index: 100;
     left: 0;
     display: none;
     width: 100%;

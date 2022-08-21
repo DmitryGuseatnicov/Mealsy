@@ -120,14 +120,14 @@ const tagsData: any[] = [
 const UiKit = () => {
   const [simpleSelectValue, setSimpleSelectValue] = useState('');
 
-  const handleSimpleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSimpleSelectValue(e.target.value);
+  const handleSimpleSelectChange = (e: { value: string }) => {
+    setSimpleSelectValue(e.value);
   };
 
   const [sortValue, setSortValue] = useState('Кухня');
 
-  const handleSortSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortValue(e.target.value);
+  const handleSortSelectChange = (e: { value: string }) => {
+    setSortValue(e.value);
   };
 
   const [date, setDate] = useState<string>('');

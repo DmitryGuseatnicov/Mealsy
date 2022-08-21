@@ -46,12 +46,14 @@ const TagCollector: FC<ITagCollector> = (props) => {
 
   const handleSearchItemClick = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
+
     onSelect({ value: target.dataset.value });
     setIsOpen(false);
   };
 
   const handleSearchItemKeydown = (e: React.KeyboardEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
+
     if (e.key === 'Enter') {
       onSelect({ value: target.dataset.value });
       setIsOpen(false);

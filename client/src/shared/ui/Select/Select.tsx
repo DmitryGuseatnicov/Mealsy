@@ -20,11 +20,11 @@ interface ISelectItem {
 
 interface ISelect {
   name: string;
+  onChange: (e: { value: string }) => void;
   value?: string;
   label?: string;
   placeholder?: string;
   type?: 'simple' | 'sort';
-  onChange: (e: any) => void;
   items?: ISelectItemData[];
 }
 
@@ -63,28 +63,24 @@ const Select: FC<ISelect> = (props) => {
 
   const handleSelectItemClick = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLDivElement;
-    const event = {
-      target: {
-        ...target,
-        value: target.dataset.value
-      }
-    };
+    if (!target.dataset.value) {
+      return;
+    }
+
     handleSelectInputClick();
-    onChange(event);
+    onChange({ value: target.dataset.value });
   };
 
   const handleSelectItemKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     const target = e.target as HTMLDivElement;
+    if (!target.dataset.value) {
+      return;
+    }
+
     if (e.key === 'Enter') {
       e.preventDefault();
-      const event = {
-        target: {
-          ...target,
-          value: target.dataset.value
-        }
-      };
       handleSelectInputClick();
-      onChange(event);
+      onChange({ value: target.dataset.value });
     }
   };
 
@@ -101,7 +97,6 @@ const Select: FC<ISelect> = (props) => {
             label={label}
             readonly
             status={isOpen ? 'positive' : 'default'}
-            onChange={onChange}
             placeholder={placeholder}
             onIconClick={handleSelectInputClick}
             onClick={handleSelectInputClick}>
@@ -118,7 +113,6 @@ const Select: FC<ISelect> = (props) => {
             className="select__sort-input"
             readOnly
             value={value}
-            onChange={onChange}
             onClick={handleSelectInputClick}
           />
           <button
