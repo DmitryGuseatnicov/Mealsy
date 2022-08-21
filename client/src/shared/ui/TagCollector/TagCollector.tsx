@@ -2,6 +2,7 @@ import React, { FC, useRef, useState } from 'react';
 
 import Icon from '../Icon/Icon';
 import Tag, { ITag } from '../Tag/Tag';
+import { useOutsideHandler } from '../../hooks';
 import './TagCollector.scss';
 
 interface ITagCollector {
@@ -23,43 +24,15 @@ const TagCollector: FC<ITagCollector> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleWindowClick = (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (!inputRef.current?.contains(target)) {
-      // eslint-disable-next-line no-use-before-define
-      removeWindowEventListener();
-      setIsOpen(false);
-    }
-  };
-
-  const handleWindowKeyDown = (e: KeyboardEvent) => {
-    const target = e.target as HTMLElement;
-    if (e.key === 'Tab' || e.key === 'Shift') {
-      return;
-    }
-    if (!inputRef.current?.contains(target)) {
-      // eslint-disable-next-line no-use-before-define
-      removeWindowEventListener();
-      setIsOpen(false);
-    }
-  };
-
-  const bindWindowEventListener = () => {
-    window.addEventListener('click', handleWindowClick);
-    window.addEventListener('keydown', handleWindowKeyDown);
-  };
-
-  const removeWindowEventListener = () => {
-    window.removeEventListener('click', handleWindowClick);
-    window.removeEventListener('keydown', handleWindowKeyDown);
-  };
+  const handleOutSideTarget = () => setIsOpen(false);
+  const { addOutSideListener } = useOutsideHandler(inputRef, handleOutSideTarget);
 
   const handleButtonClick = () => {
     if (!isOpen) {
       setIsOpen(true);
       setTimeout(() => {
         inputRef.current?.focus();
-        bindWindowEventListener();
+        addOutSideListener();
       });
     }
   };

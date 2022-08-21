@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { FC, useRef, useState } from 'react';
+
 import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
+import { useOutsideHandler } from '../../hooks';
 import './Select.scss';
 
 interface ISelectItemData {
@@ -47,46 +49,16 @@ const Select: FC<ISelect> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const classes = ['select', isOpen ? 'select_open' : ''].join(' ');
-
-  const handleWindowClick = (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (!ref.current?.contains(target)) {
-      // eslint-disable-next-line no-use-before-define
-      removeWindowEventListener();
-      setIsOpen(false);
-    }
-  };
-
-  const handleWindowKeyDown = (e: KeyboardEvent) => {
-    const target = e.target as HTMLElement;
-    if (e.key === 'Tab' || e.key === 'Shift') {
-      return;
-    }
-    if (!ref.current?.contains(target)) {
-      // eslint-disable-next-line no-use-before-define
-      removeWindowEventListener();
-      setIsOpen(false);
-    }
-  };
-
-  const bindWindowEventListener = () => {
-    window.addEventListener('click', handleWindowClick);
-    window.addEventListener('keydown', handleWindowKeyDown);
-  };
-
-  const removeWindowEventListener = () => {
-    window.removeEventListener('click', handleWindowClick);
-    window.removeEventListener('keydown', handleWindowKeyDown);
-  };
+  const handleOutSideTarget = () => setIsOpen(false);
+  const { addOutSideListener } = useOutsideHandler(ref, handleOutSideTarget);
 
   const handleSelectInputClick = () => {
     if (isOpen) {
-      removeWindowEventListener();
-      return setIsOpen(false);
+      setIsOpen(false);
+    } else {
+      addOutSideListener();
+      setIsOpen(true);
     }
-    bindWindowEventListener();
-    return setIsOpen(true);
   };
 
   const handleSelectItemClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -115,6 +87,8 @@ const Select: FC<ISelect> = (props) => {
       onChange(event);
     }
   };
+
+  const classes = ['select', isOpen ? 'select_open' : ''].join(' ');
 
   return (
     <div className={classes} ref={ref}>
