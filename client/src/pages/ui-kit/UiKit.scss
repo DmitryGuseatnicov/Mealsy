@@ -27,6 +27,7 @@
 
   &__button {
     margin-right: 30px;
+    cursor: pointer;
   }
 
   &__icons {
@@ -64,7 +65,7 @@
     width: 300px;
   }
 
-  &__tags-block{
+  &__tags-block {
     margin-top: 40px;
   }
 
@@ -77,5 +78,11 @@
   &__range-slider {
     flex-grow: 1;
     margin-right: 20px;
+  }
+
+  &__cards {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
   }
 }

@@ -8,6 +8,7 @@ import DateDropdown, { IDateDropdown } from './DateDropdown/DateDropdown';
 import TagCollector, { ITagCollector } from './TagCollector/TagCollector';
 import Tag, { ITag } from './Tag/Tag';
 import RangeSlider, { IRangeSlider } from './RangeSlider/RangeSlider';
+import Card, { ICard } from './Card/Card';
 
 export type {
   IButton,
@@ -18,6 +19,19 @@ export type {
   IDateDropdown,
   ITagCollector,
   ITag,
-  IRangeSlider
+  IRangeSlider,
+  ICard
 };
-export { Logo, Button, Icon, Title, Input, Select, DateDropdown, TagCollector, Tag, RangeSlider };
+export {
+  Logo,
+  Button,
+  Icon,
+  Title,
+  Input,
+  Select,
+  DateDropdown,
+  TagCollector,
+  Tag,
+  RangeSlider,
+  Card
+};

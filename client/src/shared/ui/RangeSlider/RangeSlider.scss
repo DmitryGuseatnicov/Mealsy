@@ -16,23 +16,23 @@
       &-dot {
         display: none;
       }
-    
+
       &-track {
         height: 22px;
         border-radius: 22px 0 0 22px;
         background-color: $color-second;
       }
-    
+
       &-rail {
         height: 22px;
         border-radius: 22px;
         background-color: $color-second-lighter;
       }
-    
+
       &-handle {
         height: 22px;
         width: 22px;
-        margin-top: 0px;
+        margin-top: 0;
         border: solid 2px $color-second;
         opacity: 1;
       }
@@ -48,22 +48,22 @@
       &-dot {
         display: none;
       }
-    
+
       &-track {
         height: 11px;
         border-radius: 11px;
         background-color: $color-second;
       }
-    
+
       &-rail {
         height: 11px;
         background-color: $color-second-lighter;
       }
-    
+
       &-handle {
         height: 11px;
         width: 11px;
-        margin-top: 0px;
+        margin-top: 0;
         border: solid 1px $color-second;
         opacity: 1;
       }
