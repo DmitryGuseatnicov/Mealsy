@@ -1,0 +1,72 @@
+@import 'rc-slider/assets/index.css';
+@import 'shared/styles/var.scss';
+
+.range-slider {
+  .rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+    border-color: $color-second-lighter;
+    box-shadow: 0 0 0 5px $color-second-light;
+  }
+
+  .rc-slider-mark-text {
+    @extend %text-main-small;
+  }
+
+  &_size-standard {
+    .rc-slider {
+      &-dot {
+        display: none;
+      }
+    
+      &-track {
+        height: 22px;
+        border-radius: 22px 0 0 22px;
+        background-color: $color-second;
+      }
+    
+      &-rail {
+        height: 22px;
+        border-radius: 22px;
+        background-color: $color-second-lighter;
+      }
+    
+      &-handle {
+        height: 22px;
+        width: 22px;
+        margin-top: 0px;
+        border: solid 2px $color-second;
+        opacity: 1;
+      }
+
+      &-mark-text {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &_size-small {
+    .rc-slider {
+      &-dot {
+        display: none;
+      }
+    
+      &-track {
+        height: 11px;
+        border-radius: 11px;
+        background-color: $color-second;
+      }
+    
+      &-rail {
+        height: 11px;
+        background-color: $color-second-lighter;
+      }
+    
+      &-handle {
+        height: 11px;
+        width: 11px;
+        margin-top: 0px;
+        border: solid 1px $color-second;
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -12,7 +12,8 @@ import {
   Title,
   Select,
   DateDropdown,
-  TagCollector
+  TagCollector,
+  RangeSlider
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -164,6 +165,25 @@ const UiKit = () => {
 
   const handleTagButtonClick = (e: { value: string }) => {
     setTagState(tagState.filter((tag) => tag !== e.value));
+  };
+
+  const [rangeValueSliderBig, setRangeValueSliderBig] = useState(20);
+  const [rangeValueSliderSmall, setRangeValueSliderSmall] = useState(40);
+  const marks = [
+    [0, ''],
+    [20, 'до 20 минут'],
+    [40, 'до 40 минут'],
+    [60, 'до 60 минут'],
+    [80, 'болee 1 часа'],
+    [100, '']
+  ];
+
+  const handleBigRangeSliderChange = (e: { value: number }) => {
+    setRangeValueSliderBig(e.value);
+  };
+
+  const handleSmallRangeSliderChange = (e: { value: number }) => {
+    setRangeValueSliderSmall(e.value);
   };
 
   return (
@@ -341,6 +361,32 @@ const UiKit = () => {
             searchItems={matchTags}
             onSearchValueChange={handleTagCollectorInputChange}
             onSelect={handleTagCollectorSearchItemClick}
+          />
+        </div>
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Range Slider
+        </Title>
+      </div>
+      <div className="ui-kit__range-sliders">
+        <div className="ui-kit__range-slider">
+          <RangeSlider
+            min={0}
+            max={100}
+            value={rangeValueSliderBig}
+            onChange={handleBigRangeSliderChange}
+            marks={Object.fromEntries(marks)}
+          />
+        </div>
+        <div className="ui-kit__range-slider">
+          <RangeSlider
+            min={0}
+            max={100}
+            value={rangeValueSliderSmall}
+            onChange={handleSmallRangeSliderChange}
+            marks={Object.fromEntries(marks)}
+            size="small"
           />
         </div>
       </div>

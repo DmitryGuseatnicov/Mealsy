@@ -67,4 +67,15 @@
   &__tags-block{
     margin-top: 40px;
   }
+
+  &__range-sliders {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__range-slider {
+    flex-grow: 1;
+    margin-right: 20px;
+  }
 }

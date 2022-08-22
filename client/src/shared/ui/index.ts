@@ -7,6 +7,17 @@ import { Select, ISelect } from './Select/Select';
 import DateDropdown, { IDateDropdown } from './DateDropdown/DateDropdown';
 import TagCollector, { ITagCollector } from './TagCollector/TagCollector';
 import Tag, { ITag } from './Tag/Tag';
+import RangeSlider, { IRangeSlider } from './RangeSlider/RangeSlider';
 
-export type { IButton, IIcon, ITitle, IInput, ISelect, IDateDropdown, ITagCollector, ITag };
-export { Logo, Button, Icon, Title, Input, Select, DateDropdown, TagCollector, Tag };
+export type {
+  IButton,
+  IIcon,
+  ITitle,
+  IInput,
+  ISelect,
+  IDateDropdown,
+  ITagCollector,
+  ITag,
+  IRangeSlider
+};
+export { Logo, Button, Icon, Title, Input, Select, DateDropdown, TagCollector, Tag, RangeSlider };
