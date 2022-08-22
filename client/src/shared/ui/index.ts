@@ -9,6 +9,7 @@ import TagCollector, { ITagCollector } from './TagCollector/TagCollector';
 import Tag, { ITag } from './Tag/Tag';
 import RangeSlider, { IRangeSlider } from './RangeSlider/RangeSlider';
 import Card, { ICard } from './Card/Card';
+import CategoryFeed, { ICategoryFeed } from './CategoryFeed/CategoryFeed';
 
 export type {
   IButton,
@@ -20,7 +21,8 @@ export type {
   ITagCollector,
   ITag,
   IRangeSlider,
-  ICard
+  ICard,
+  ICategoryFeed
 };
 export {
   Logo,
@@ -33,5 +35,6 @@ export {
   TagCollector,
   Tag,
   RangeSlider,
-  Card
+  Card,
+  CategoryFeed
 };

@@ -15,7 +15,8 @@ import {
   TagCollector,
   RangeSlider,
   ICard,
-  Card
+  Card,
+  CategoryFeed
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -156,6 +157,49 @@ const cards: ICard[] = [
     isAdded: false,
     likes: 5,
     cokingTime: 102
+  }
+];
+
+const categories = [
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/0b0f/ea67/38a8c444a9a339c44ed37e2f958748ca?Expires=1662336000&Signature=YheXOeQ80My-4ogagkbWKEDJHrO5jcJEbRy-4LPYP~-rLBG~~HOrWQ0JGspkd4cth1Vinzq1nB-xE8vS0zO3GYb0V8aTGw-Dg17ppSkk7l5wfLJJ-vzGAI9qAd9QuYBi5DFXD0AOab~CkAqbqk5LrFRLilpdfSUiMlWp-3tXFIZnMhIEBvkzONP34nmBv-DP8N90cZKf-x972NIeGSunBbgfWZkV3MGUakxdq0q6T2WRbShRsQnv97uCIxdJjMINo6PNsBKI56tzsb8crxvyCZ~K0NoUWnu3G~H6HOkPd-fjIBLEBPhOHsxXashQBDfAhj4uJTA0FQ3oFEMrZxX2iA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Русская кухня',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/ef46/55d0/9a88a4ef2d6f63de4b040ec4caee788b?Expires=1662336000&Signature=DqWo17kAv8TmNjCnhJNAFLGuykGJ6Ls8Y~Hl9q5kyn86uyhNxbSd3Uau6WNNxcL6aOrnPrRqyu40LyrQrRFoIJUrkAdoB54uNcTFmh3hRCrPABuDqRE6yYQ75cE-SRyPhqn16fplA9TzJRFlWSD8VOKIegf2VyDmctuNz5fdSlwymaBx5eYnc-E-tX1~zG1WEeLOnCQc3rlYvU54NTQL70JuUPaXHVXO5ekryvMXlGPhU0fxZycOB5leYSgYhHrJZDHy00d0kwDQRe0duFhUW6I0TZNSP~ofIdtEqcwgWTO6pi2b~0YtN42hSAJj~Nlkd14J5uzHaij5rSdLGvdTwA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Азиатская кухня',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/e5fd/864a/69a929f80b0881164d4a8e998cc45957?Expires=1662336000&Signature=Chh530YlAVOHDhw8fwNNKxM6I85HSWyp4Pt9vdFZpb5xbYyOcX~tWOpiWWhrWygWMddwuqX32Kq2BYAU1X4JVm6MLRlX06h1-iqomaSSMqaPaHZ1pAx9Cvws7p7ue501sqkbhYx1YWWr~h-TiK~ADTh-ZoZY0azZ8h4CwNjvs65Qkozneq2zeGFoPm9Z8MnsF5G1uQTAW-QDb7iZY48LJBB54OMJEK9R5kj5LWxF46YiFhDB6Ex6OP4Qxb74i8CR6p1JRS39ujxTzqy-HksOplOf14TG7ZVrsQtT6PkAr-6nSjXjjk0P4Nhx0wZz3nFt7FXnAhg~eFRighV33vQLnQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Британская кухня',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/0a65/36c0/9116f5a88b4407b5d579f220c53324d5?Expires=1662336000&Signature=PAcRs2D1Q~5UjoLd4LVYssmKdHRaurEKuH6hZFuvN-rd8M5qCeq6KTTEetICexh2hIjbmusAgiycmBl1KHCX~8sM61nQVk7kggpJFaeAqgkzZG6LLD67NVLaWwZebrp4DGg9fEZwDrZih7C4DAG~hHcUzD~W0CLjbO8nbK2i8GFTQH6IAI~yeajuniItd4~PmLhnNyHusMrel0lNL37jyfU00oUle-h9IHtV70g~-egl2XmAWF551Fch6UVbKU0164qcMlVsrGvHi~9mNNiluW8FKqKmtSTJXaFw14caRw8uQTx46NMsKRzrZvnRTl5WUQNGG4V6Ciw8IAegCirflg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Китайская кухня',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/b28c/3035/60a9bc4d70e6c788d097a00e6c6b4458?Expires=1662336000&Signature=eyCZ~7pxqziBCg8uC1V6nLB16YrSQFRNHXjmh6y9DLgkNCPxMhyK3sb35dWCTjf1ttdy0hNG0lF82Ok8u~05RMhCSEKox4narRyWJHgulnnpks~-UrpsEK51M56gAP~hTWuFJFqlALzWuL~Cdt8nQHmIOaIw8Dbo5SDCY6FCulaEsRRS4R6Y9r2v-mg4sCzYa3t67sq2qFzBBsrYn7Zr4vdYKLpgIbfgD6k-dGR3Qm0dL7L~mdl9mrQxhrsc0OFq39fOydX2tYwfO3QLtrTpg~cliLqgsBlrsE7gyy69~g1VWLbVE9NDn9VphpWl6kqt~GfL14c1MigUdbDGlHw2QQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Французская кухня',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/03aa/c69b/38509793a7a1492ddc20505967d11257?Expires=1662336000&Signature=XA9Nd0uP1TXhnegDM-mhe2jT18k2YWIA4u6~m62EsTMK2diOwegSTUQrOY6SanrwmR7ajORJreK6z0-sUM5gK1cCPJfCbC~Y28Mu62ATMD3vT0uOdXVLCsJSCPV5YnWeDmc9rNDH0SnmE0prhEwi~bsUFQc3KB4aRKyNGwt96lFalu888Oth53clcEPjx5s0pFJeuQ-7NqixvS3rlV8bhebECkGWOM6iCpGcsNwuKdHNHg8JWK-7KdCt2NyKCgDY~2ZG6cxba08E0ybZCOGXvdNkL93sMR7XVMTMXMmVvplADJzjhcK1cDzHXaKP4Q6TOG1hiJMA79fktiR6OLQxAQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Немецкая кухня',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/5618/71ca/d0ca33ba3a750597b5e8c10f172ad1a3?Expires=1662336000&Signature=eHqVzy3squNp1vYOKiQTr47NCujWmZWW7~T~2mnR4DxM85x13fSIL8TnXBPgqIaunXO7gpwwBT6MclXvPzOZpTYk2VsAdBDdpCT6hRUNgDOzfJ37IgbRIspKkj3aFEucu8Ar4OBfULixuPow9Whza0aUd2EspV9-TqjO0TP9Lac4etT8l-5VySeUUemYbVhk~xLoAJqHcJ7PoJrb1c1i064Bo4ytliiooFq2dMfdXQ-j8beGVjS6KPCd52hf3DZ5D-Ve3cr42QMnlrdlo1jZGaS1xQZGbtZ7LF4f2w4p5zRQCC3hvPwc14BSCBnFL8tnaBPE9qM4Fo0rz~aZroANng__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Греческая кухня',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/a1d9/3a9b/d748d7eb83f4dcc61509380e32cb0168?Expires=1662336000&Signature=BRwWHd3C9bbtD0kDj8Rc~iKiIoPE4NvwJcnjkHB8NxrbWfHXzopiL2mOXrBRMqSH6d3RYRnlEtranuyWq-si4oE2mh2UoIU~Nr6e5wQqmfqyTWHIVD8uI7mCRPn9v7iAH4jTyMKPgqvzENSQDzLdwpvxYRKunfyvoE~OKyVYevDWr8yWOxNf0dFfjMRLuj~ncA~laFluE0-TPiONBvJ5adOQy8UKFCvtphdDxvN~y-trW9yP2PaSXOsU1GddocXJonAP2ZwaeGzwHOCtJKMn8aEW7Bz3w9pUNq9QFy3rLHrjQ9REsKVPo3q0~NpEJU4vr65KNPDNntrMH-sRKPHS9w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Индийская кухня',
+    link: ''
   }
 ];
 
@@ -450,6 +494,14 @@ const UiKit = () => {
             />
           </div>
         ))}
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          CategoryFeed
+        </Title>
+      </div>
+      <div className="ui-kit__category-feed">
+        <CategoryFeed categories={categories} />
       </div>
     </div>
   );
