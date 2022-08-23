@@ -12,6 +12,7 @@ import ReceptCard, { IReceptCard } from './ReceptCard/ReceptCard';
 import CategoryFeed, { ICategoryFeed } from './CategoryFeed/CategoryFeed';
 import ProductTypeCard, { IProductTypeCard } from './ProductTypeCard/ProductTypeCard';
 import ProductCard, { IProductCard } from './ProductCard/ProductCard';
+import DescriptionCard, { IDescriptionCard } from './DescriptionCard/DescriptionCard';
 
 export type {
   IButton,
@@ -26,7 +27,8 @@ export type {
   IReceptCard,
   ICategoryFeed,
   IProductTypeCard,
-  IProductCard
+  IProductCard,
+  IDescriptionCard
 };
 export {
   Logo,
@@ -42,5 +44,6 @@ export {
   ReceptCard,
   CategoryFeed,
   ProductTypeCard,
-  ProductCard
+  ProductCard,
+  DescriptionCard
 };

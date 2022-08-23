@@ -1,0 +1,50 @@
+@import 'shared/styles/var.scss';
+
+.description-card {
+  padding: 20px;
+  background: #fff;
+  max-width: 564px;
+  border-radius: 10px;
+  border: 1px solid $color-second-lighter;
+
+  &__photo {
+    float: left;
+    top: 20px;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  &__position-block {
+    display: inline-block;
+    width: 150px;
+    height: 60px;
+    float: left;
+    margin-right: 20px;
+  }
+
+  &__name {
+    font-weight: 700;
+  }
+
+  &__type {
+    @extend %text-main-small;
+  }
+
+  &__info {
+    margin-top: 30px;
+
+    @extend %text-main-small;
+  }
+
+  &__link {
+    margin-top: 20px;
+  }
+}

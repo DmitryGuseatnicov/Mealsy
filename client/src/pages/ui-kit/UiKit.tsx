@@ -20,7 +20,9 @@ import {
   IProductTypeCard,
   ProductTypeCard,
   IProductCard,
-  ProductCard
+  ProductCard,
+  IDescriptionCard,
+  DescriptionCard
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -274,6 +276,25 @@ const productCardsData: IProductCard[] = [
       carbohydrates: 108,
       energyValue: 800
     }
+  }
+];
+
+const descriptionCardData: IDescriptionCard[] = [
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/fea5/39b8/24e3c25677119c2b63f8a42b22f337db?Expires=1662336000&Signature=Fm6CxOduiMNdihNXVwxWnToobUSbYX8C5iz7YSiXnVlrdvV9soYmsim~Tt60Nz9m4bcniY~3Kfz-7wza-y1wDAvdzUu9wE7WqlMnXFmgENQzpOlkbOWcsWIpZ6dqNGDioOWKRl33M-267YrpEJHreGFQ~lDg3ivgjPtUiIO3qMQZfw2sg7I1CBszYfCOuf6ZljcJImo-e~DgUxPvIx4c9r8IZYFc~uFD~kT9pP4vlpTqWEdP775FGF1Jzw7k9OYwuTgYGKOwH-AmOoH1-oaSUVWKaKelkyfjuW590bq-PjqYsw5hePIXkc~hp7epaXg4CmdK1pxqa8NvmhWZNix4uQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Малина',
+    type: 'Ингредиент',
+    link: '',
+    description:
+      'ценная ягода, в которой содержатся витамины A, B, C. Малину рекомендуют есть тем, чья работа связана с постоянным нервным напряжением, а также при малокровии и заболеваниях желудочно-кишечного тракта'
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/fea5/39b8/24e3c25677119c2b63f8a42b22f337db?Expires=1662336000&Signature=Fm6CxOduiMNdihNXVwxWnToobUSbYX8C5iz7YSiXnVlrdvV9soYmsim~Tt60Nz9m4bcniY~3Kfz-7wza-y1wDAvdzUu9wE7WqlMnXFmgENQzpOlkbOWcsWIpZ6dqNGDioOWKRl33M-267YrpEJHreGFQ~lDg3ivgjPtUiIO3qMQZfw2sg7I1CBszYfCOuf6ZljcJImo-e~DgUxPvIx4c9r8IZYFc~uFD~kT9pP4vlpTqWEdP775FGF1Jzw7k9OYwuTgYGKOwH-AmOoH1-oaSUVWKaKelkyfjuW590bq-PjqYsw5hePIXkc~hp7epaXg4CmdK1pxqa8NvmhWZNix4uQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Клубника',
+    type: 'Ингредиент',
+    link: '',
+    description:
+      'ценная ягода, в которой содержатся витамины A, B, C. Малину рекомендуют есть тем, чья работа связана с постоянным нервным напряжением, а также при малокровии и заболеваниях желудочно-кишечного тракта'
   }
 ];
 
@@ -580,6 +601,19 @@ const UiKit = () => {
         {productCardsData.map((card) => (
           <div className="ui-kit__product-type-card" key={card.name}>
             <ProductCard name={card.name} img={card.img} link={card.link} pfs={card.pfs} />
+          </div>
+        ))}
+      </div>
+      <div className="ui-kit__product-type-cards">
+        {descriptionCardData.map((card) => (
+          <div className="ui-kit__product-type-card" key={card.name}>
+            <DescriptionCard
+              name={card.name}
+              img={card.img}
+              link={card.link}
+              type={card.type}
+              description={card.description}
+            />
           </div>
         ))}
       </div>
