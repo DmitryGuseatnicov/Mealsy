@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
 import Icon from '../Icon/Icon';
-import './Card.scss';
+import './ReceptCard.scss';
 
-interface ICard {
+interface IReceptCard {
   id: string;
   name: string;
   img: string;
@@ -13,7 +13,7 @@ interface ICard {
   cokingTime: string | number;
 }
 
-const Card: FC<ICard> = (props) => {
+const ReceptCard: FC<IReceptCard> = (props) => {
   // eslint-disable-next-line no-unused-vars
   const { id, name, img, isAdded, isLiked, likes, cokingTime } = props;
   return (
@@ -42,5 +42,5 @@ const Card: FC<ICard> = (props) => {
   );
 };
 
-export type { ICard };
-export default Card;
+export type { IReceptCard };
+export default ReceptCard;

@@ -8,7 +8,7 @@ import DateDropdown, { IDateDropdown } from './DateDropdown/DateDropdown';
 import TagCollector, { ITagCollector } from './TagCollector/TagCollector';
 import Tag, { ITag } from './Tag/Tag';
 import RangeSlider, { IRangeSlider } from './RangeSlider/RangeSlider';
-import Card, { ICard } from './Card/Card';
+import ReceptCard, { IReceptCard } from './ReceptCard/ReceptCard';
 import CategoryFeed, { ICategoryFeed } from './CategoryFeed/CategoryFeed';
 
 export type {
@@ -21,7 +21,7 @@ export type {
   ITagCollector,
   ITag,
   IRangeSlider,
-  ICard,
+  IReceptCard,
   ICategoryFeed
 };
 export {
@@ -35,6 +35,6 @@ export {
   TagCollector,
   Tag,
   RangeSlider,
-  Card,
+  ReceptCard,
   CategoryFeed
 };

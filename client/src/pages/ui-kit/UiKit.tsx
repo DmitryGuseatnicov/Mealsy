@@ -14,8 +14,8 @@ import {
   DateDropdown,
   TagCollector,
   RangeSlider,
-  ICard,
-  Card,
+  IReceptCard,
+  ReceptCard,
   CategoryFeed
 } from 'shared/ui';
 import './UiKit.scss';
@@ -121,7 +121,7 @@ const tagsData: any[] = [
   'Лосось'
 ];
 
-const cards: ICard[] = [
+const cards: IReceptCard[] = [
   {
     id: '1',
     img: 'https://s3-alpha-sig.figma.com/img/5dba/c2bf/ff28867c6439c0d9005ed61ec3039391?Expires=1662336000&Signature=ZGU2b0EcCcq6J5PAGroE6kaULE91WSKCQ96Ts~Y1Rf7-3vpbsACWdXmnynn23otuPxRxkOKrM99J6GOu0sChvfjlQ7Zzioh6NQJpHd1sj05bufzYXK1M2eGM9hrR2L40hU1pTDed-UE0MjCbI47umugyELplQMvCXatb7861z1RUYUqrXp4bMXatZG51cNUcDbFLuAqTq26KdVE-ANzQtMDmxewOAURIoMOIkbiWJzxEHWB8bfEMTerxQRcIKk4CJHrCfj3FwwzMNfjfYlBehpKQlfMwpnr~NpM4W0qOitOx1mM3MMSdChZXPXfTWFPL-RKG5vrbJGK9PnhsudmCrg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
@@ -483,7 +483,7 @@ const UiKit = () => {
       <div className="ui-kit__cards">
         {cards.map((card) => (
           <div className="ui-kit__card" key={card.id}>
-            <Card
+            <ReceptCard
               id={card.id}
               name={card.name}
               img={card.img}
