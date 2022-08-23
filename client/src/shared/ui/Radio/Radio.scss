@@ -1,15 +1,15 @@
 @import 'shared/styles/var.scss';
 
-$blockName: 'radio';
+$block-name: 'radio';
 
-.#{$blockName} {
+.#{$block-name} {
   user-select: none;
 
   &__input {
     appearance: none;
     opacity: 0;
 
-    &:not(:disabled):not(:checked) + span:hover::after {
+    &:not(:disabled, :checked) + span:hover::after {
       border-color: $color-second;
     }
 
@@ -29,12 +29,12 @@ $blockName: 'radio';
       border-color: $color-second;
     }
 
-    &:disabled + span::after {
-      border-color: $color-second-lighter;
-    }
+    &:disabled + span {
+      color: $color-main-light;
 
-    &:disabled + span::after {
-      background-color: rgba($color-main-light, $alpha: 0.4);
+      &::after {
+        border-color: $color-main-light;
+      }
     }
   }
 
@@ -43,10 +43,10 @@ $blockName: 'radio';
   }
 
   &_size-small {
-    .#{$blockName} {
+    .#{$block-name} {
       &__text {
         padding-left: 25px;
-    
+
         &::after {
           content: '';
           position: absolute;
@@ -62,11 +62,11 @@ $blockName: 'radio';
   }
 
   &_size-medium {
-    .#{$blockName} {
+    .#{$block-name} {
       &__text {
         padding-left: 30px;
         line-height: normal;
-    
+
         &::after {
           content: '';
           position: absolute;
