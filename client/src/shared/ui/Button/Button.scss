@@ -18,6 +18,16 @@ $block-name: 'button';
     opacity: 0.5;
   }
 
+  &_link {
+    display: block;
+    text-decoration: none;
+  }
+
+  &_size-adaptive {
+    padding: 19px;
+    width: 100%;
+  }
+
   &_size-small {
     padding: 19px;
   }
