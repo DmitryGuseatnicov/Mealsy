@@ -80,7 +80,13 @@
     margin-right: 20px;
   }
 
-  &__cards {
+  &__recept-cards {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__product-type-cards {
     margin-top: 40px;
     display: flex;
     justify-content: space-between;

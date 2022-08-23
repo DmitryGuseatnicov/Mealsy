@@ -1,0 +1,23 @@
+@import 'shared/styles/var.scss';
+
+.product-type-card {
+  display: block;
+  text-decoration: none;
+
+  &__photo {
+    width: 280px;
+    height: 280px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  &__name {
+    margin-top: 10px;
+    color: $color-main;
+  }
+}

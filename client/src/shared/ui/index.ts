@@ -10,6 +10,7 @@ import Tag, { ITag } from './Tag/Tag';
 import RangeSlider, { IRangeSlider } from './RangeSlider/RangeSlider';
 import ReceptCard, { IReceptCard } from './ReceptCard/ReceptCard';
 import CategoryFeed, { ICategoryFeed } from './CategoryFeed/CategoryFeed';
+import ProductTypeCard, { IProductTypeCard } from './ProductTypeCard/ProductTypeCard';
 
 export type {
   IButton,
@@ -22,7 +23,8 @@ export type {
   ITag,
   IRangeSlider,
   IReceptCard,
-  ICategoryFeed
+  ICategoryFeed,
+  IProductTypeCard
 };
 export {
   Logo,
@@ -36,5 +38,6 @@ export {
   Tag,
   RangeSlider,
   ReceptCard,
-  CategoryFeed
+  CategoryFeed,
+  ProductTypeCard
 };

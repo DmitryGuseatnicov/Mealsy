@@ -16,7 +16,9 @@ import {
   RangeSlider,
   IReceptCard,
   ReceptCard,
-  CategoryFeed
+  CategoryFeed,
+  IProductTypeCard,
+  ProductTypeCard
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -199,6 +201,29 @@ const categories = [
   {
     img: 'https://s3-alpha-sig.figma.com/img/a1d9/3a9b/d748d7eb83f4dcc61509380e32cb0168?Expires=1662336000&Signature=BRwWHd3C9bbtD0kDj8Rc~iKiIoPE4NvwJcnjkHB8NxrbWfHXzopiL2mOXrBRMqSH6d3RYRnlEtranuyWq-si4oE2mh2UoIU~Nr6e5wQqmfqyTWHIVD8uI7mCRPn9v7iAH4jTyMKPgqvzENSQDzLdwpvxYRKunfyvoE~OKyVYevDWr8yWOxNf0dFfjMRLuj~ncA~laFluE0-TPiONBvJ5adOQy8UKFCvtphdDxvN~y-trW9yP2PaSXOsU1GddocXJonAP2ZwaeGzwHOCtJKMn8aEW7Bz3w9pUNq9QFy3rLHrjQ9REsKVPo3q0~NpEJU4vr65KNPDNntrMH-sRKPHS9w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
     name: 'Индийская кухня',
+    link: ''
+  }
+];
+
+const productTypesData: IProductTypeCard[] = [
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/2273/b732/2cd437e6c94b11da7c2742026feef59e?Expires=1662336000&Signature=DEWIbdsyDyPrvsvieHT0wwCDA59QKZkVK~WLCjTpgLWJolLrkA-eRLHWP-opwdUeWyFKDq8eQU9l02qyjOuxErWLG985hPoca0uAkWGShGfbfSqFLbcHjDHjjMeKdl1yMsNN0lLPDBhCY1UeCcEEFoRtRmt5fAROAH3GWkElkU2C9qutKmoG3qN0j8uWyHJQPwSpBamtOwbJVXS9i2D62oD58Wkor235mAb4md26HqgiadSAuhYvqEl3P-rUhOWHZseX1YYSOUdwoW6javlxvvbDSsm-HM2cokvkUYU2gQnTWLIr5nmNbbdD1AfiT5KnGoo50ycmZPwqs1nSjEJ9XA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Молочные продукты и яйца',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/5394/a71a/13a55f84f73e05ea10e7155cdd5257f0?Expires=1662336000&Signature=AIGMjcuiSGbZ5QI5FYynbSgPZ5sVKDJXetGhcqHhUPBG9jSXIdqkF6ShtX3zzAoqyumH38HGMEiJ2QgGRPW41bJe0LzDOG5HK807fSc67vzp0P7EXb3LNXce0CmhjK7nW~s~Pz52mBzZKN-NCBTigLrvqU~mWrV1kzbkag0Utvw~7Ao1IoCGVeCFHk3aTAy6CajQkC51645hbiNA1iA-vVLQ3JOrOTJuRUJ8-Xp-DAkCt1X~Ytl6I5i6H1i8VJ5X~Sci6yOyVhFaF2Y-noLpgndhh~bODlbNeIBut4a9GuDv5v50xOLbLv0VU8OuTmADI4FmJdw40lu97IsXwC6k1Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Рыба и морепродукты',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/80f5/c256/145075658d47f1bd847a51c787825f85?Expires=1662336000&Signature=TSKcZtPYsrYL1tGoDkNTeT5minX9x-KloVVztEXVSTIxa0U0tc2HL25VuDRpSoq5q-2U7VaVUwuIsWKK8x1tPDV5Gjb0WwMEYwQGfbfy-9-n~~ZvDfxnufvfI-y5FLWX5XHFCXhx6TjLCUOBl17nrONKzgA403-YAZItiYEoISwN0L1iTpWDc0Q56wFNAMc7y0iM-Thihl44M-y5Q0mmu9ElO14wMThp-jryar8Jmnp7jMSJ23Gyo1R1fVkxsQe4hCmZuCkR-BLB69oWn0i6EkSHUbmH0DraEG35CtPyBmbWsM28NJe9o39ZhyMyIUip43TlG3RZhcSRGgwC8HTRDg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Овощи и корнеплоды',
+    link: ''
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/80f5/c256/145075658d47f1bd847a51c787825f85?Expires=1662336000&Signature=TSKcZtPYsrYL1tGoDkNTeT5minX9x-KloVVztEXVSTIxa0U0tc2HL25VuDRpSoq5q-2U7VaVUwuIsWKK8x1tPDV5Gjb0WwMEYwQGfbfy-9-n~~ZvDfxnufvfI-y5FLWX5XHFCXhx6TjLCUOBl17nrONKzgA403-YAZItiYEoISwN0L1iTpWDc0Q56wFNAMc7y0iM-Thihl44M-y5Q0mmu9ElO14wMThp-jryar8Jmnp7jMSJ23Gyo1R1fVkxsQe4hCmZuCkR-BLB69oWn0i6EkSHUbmH0DraEG35CtPyBmbWsM28NJe9o39ZhyMyIUip43TlG3RZhcSRGgwC8HTRDg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Бакалея',
     link: ''
   }
 ];
@@ -480,9 +505,9 @@ const UiKit = () => {
           Cards
         </Title>
       </div>
-      <div className="ui-kit__cards">
+      <div className="ui-kit__recept-cards">
         {cards.map((card) => (
-          <div className="ui-kit__card" key={card.id}>
+          <div className="ui-kit__recept-card" key={card.id}>
             <ReceptCard
               id={card.id}
               name={card.name}
@@ -492,6 +517,13 @@ const UiKit = () => {
               likes={card.likes}
               cokingTime={card.cokingTime}
             />
+          </div>
+        ))}
+      </div>
+      <div className="ui-kit__product-type-cards">
+        {productTypesData.map((card) => (
+          <div className="ui-kit__product-type-card" key={card.name}>
+            <ProductTypeCard name={card.name} img={card.img} link={card.link} />
           </div>
         ))}
       </div>
