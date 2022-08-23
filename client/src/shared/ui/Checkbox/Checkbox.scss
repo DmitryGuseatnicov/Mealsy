@@ -1,6 +1,6 @@
 @import 'shared/styles/var.scss';
 
-$block-name: 'radio';
+$block-name: 'checkbox';
 
 .#{$block-name} {
   user-select: none;
@@ -22,10 +22,9 @@ $block-name: 'radio';
     }
 
     &:checked + span::after {
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='20' viewBox='0 0 14 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.27747 7.61527L0 9.1377L5.3303 13.6103L12.9977 4.47269L7.6674 4.5876e-05L7.66696 0.00056311L11.4737 3.19479L5.0842 10.8095L1.27747 7.61527Z' fill='white'/%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='20' viewBox='0 0 14 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.27747 7.61527L0 9.1377L5.3303 13.6103L12.9977 4.47269L7.6674 4.5876e-05L7.66696 0.00056311L11.4737 3.19479L5.0842 10.8095L1.27747 7.61527Z' fill='%2367bb5a'/%3e%3c/svg%3e");
       background-repeat: no-repeat;
       background-position: center;
-      background-color: $color-second;
       border-color: $color-second;
     }
 
@@ -55,7 +54,6 @@ $block-name: 'radio';
           top: 5px;
           width: 20px;
           height: 20px;
-          border-radius: 50%;
           border: 1px solid $color-second-light;
         }
       }
@@ -72,9 +70,9 @@ $block-name: 'radio';
           content: '';
           position: absolute;
           left: 0;
+          top: 1px;
           width: 24px;
           height: 24px;
-          border-radius: 50%;
           border: 1px solid $color-second-light;
         }
       }
