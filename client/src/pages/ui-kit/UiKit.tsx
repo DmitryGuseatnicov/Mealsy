@@ -22,7 +22,8 @@ import {
   IProductCard,
   ProductCard,
   IDescriptionCard,
-  DescriptionCard
+  DescriptionCard,
+  Radio
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -447,6 +448,19 @@ const UiKit = () => {
             </Input>
           </div>
         ))}
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Checkbox & Radio
+        </Title>
+      </div>
+      <div className="ui-kit__click-inputs">
+        <div className="ui-kit__radio">
+          <Radio label="radio-1" value="variant-1" name="radio" />
+        </div>
+        <div className="ui-kit__radio">
+          <Radio label="radio-2" value="variant-2" name="radio" size="medium" />
+        </div>
       </div>
       <div className="ui-kit__block-title">
         <Title level={3} size="big">

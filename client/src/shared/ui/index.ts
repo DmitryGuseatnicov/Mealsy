@@ -13,6 +13,7 @@ import CategoryFeed, { ICategoryFeed } from './CategoryFeed/CategoryFeed';
 import ProductTypeCard, { IProductTypeCard } from './ProductTypeCard/ProductTypeCard';
 import ProductCard, { IProductCard } from './ProductCard/ProductCard';
 import DescriptionCard, { IDescriptionCard } from './DescriptionCard/DescriptionCard';
+import Radio, { IRadio } from './Radio/Radio';
 
 export type {
   IButton,
@@ -28,7 +29,8 @@ export type {
   ICategoryFeed,
   IProductTypeCard,
   IProductCard,
-  IDescriptionCard
+  IDescriptionCard,
+  IRadio
 };
 export {
   Logo,
@@ -45,5 +47,6 @@ export {
   CategoryFeed,
   ProductTypeCard,
   ProductCard,
-  DescriptionCard
+  DescriptionCard,
+  Radio
 };

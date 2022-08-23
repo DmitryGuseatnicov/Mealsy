@@ -54,6 +54,12 @@
     margin-right: 30px;
   }
 
+  &__click-inputs {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
   &__dropdowns {
     margin-top: 40px;
     display: flex;
