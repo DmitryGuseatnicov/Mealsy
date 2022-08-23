@@ -1,8 +1,7 @@
 @import 'shared/styles/var.scss';
 
-.product-type-card {
-  display: block;
-  text-decoration: none;
+.product-card {
+  width: 280px;
 
   &__photo {
     width: 280px;
@@ -19,5 +18,20 @@
   &__name {
     margin-top: 10px;
     color: $color-main;
+  }
+
+  &__pfs {
+    margin-top: 20px;
+  }
+
+  &__pfs-item {
+    margin-top: 10px;
+    white-space: nowrap;
+
+    @extend %text-main-small;
+  }
+
+  &__link {
+    margin-top: 20px;
   }
 }

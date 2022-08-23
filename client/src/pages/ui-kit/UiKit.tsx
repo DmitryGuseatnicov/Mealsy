@@ -18,7 +18,9 @@ import {
   ReceptCard,
   CategoryFeed,
   IProductTypeCard,
-  ProductTypeCard
+  ProductTypeCard,
+  IProductCard,
+  ProductCard
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -225,6 +227,53 @@ const productTypesData: IProductTypeCard[] = [
     img: 'https://s3-alpha-sig.figma.com/img/80f5/c256/145075658d47f1bd847a51c787825f85?Expires=1662336000&Signature=TSKcZtPYsrYL1tGoDkNTeT5minX9x-KloVVztEXVSTIxa0U0tc2HL25VuDRpSoq5q-2U7VaVUwuIsWKK8x1tPDV5Gjb0WwMEYwQGfbfy-9-n~~ZvDfxnufvfI-y5FLWX5XHFCXhx6TjLCUOBl17nrONKzgA403-YAZItiYEoISwN0L1iTpWDc0Q56wFNAMc7y0iM-Thihl44M-y5Q0mmu9ElO14wMThp-jryar8Jmnp7jMSJ23Gyo1R1fVkxsQe4hCmZuCkR-BLB69oWn0i6EkSHUbmH0DraEG35CtPyBmbWsM28NJe9o39ZhyMyIUip43TlG3RZhcSRGgwC8HTRDg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
     name: 'Бакалея',
     link: ''
+  }
+];
+
+const productCardsData: IProductCard[] = [
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/2273/b732/2cd437e6c94b11da7c2742026feef59e?Expires=1662336000&Signature=DEWIbdsyDyPrvsvieHT0wwCDA59QKZkVK~WLCjTpgLWJolLrkA-eRLHWP-opwdUeWyFKDq8eQU9l02qyjOuxErWLG985hPoca0uAkWGShGfbfSqFLbcHjDHjjMeKdl1yMsNN0lLPDBhCY1UeCcEEFoRtRmt5fAROAH3GWkElkU2C9qutKmoG3qN0j8uWyHJQPwSpBamtOwbJVXS9i2D62oD58Wkor235mAb4md26HqgiadSAuhYvqEl3P-rUhOWHZseX1YYSOUdwoW6javlxvvbDSsm-HM2cokvkUYU2gQnTWLIr5nmNbbdD1AfiT5KnGoo50ycmZPwqs1nSjEJ9XA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Дорадо',
+    link: '',
+    pfs: {
+      proteins: 12,
+      fats: 30,
+      carbohydrates: 50,
+      energyValue: 230
+    }
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/2273/b732/2cd437e6c94b11da7c2742026feef59e?Expires=1662336000&Signature=DEWIbdsyDyPrvsvieHT0wwCDA59QKZkVK~WLCjTpgLWJolLrkA-eRLHWP-opwdUeWyFKDq8eQU9l02qyjOuxErWLG985hPoca0uAkWGShGfbfSqFLbcHjDHjjMeKdl1yMsNN0lLPDBhCY1UeCcEEFoRtRmt5fAROAH3GWkElkU2C9qutKmoG3qN0j8uWyHJQPwSpBamtOwbJVXS9i2D62oD58Wkor235mAb4md26HqgiadSAuhYvqEl3P-rUhOWHZseX1YYSOUdwoW6javlxvvbDSsm-HM2cokvkUYU2gQnTWLIr5nmNbbdD1AfiT5KnGoo50ycmZPwqs1nSjEJ9XA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Лосось',
+    link: '',
+    pfs: {
+      proteins: 12,
+      fats: 30,
+      carbohydrates: 50,
+      energyValue: 230
+    }
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/2273/b732/2cd437e6c94b11da7c2742026feef59e?Expires=1662336000&Signature=DEWIbdsyDyPrvsvieHT0wwCDA59QKZkVK~WLCjTpgLWJolLrkA-eRLHWP-opwdUeWyFKDq8eQU9l02qyjOuxErWLG985hPoca0uAkWGShGfbfSqFLbcHjDHjjMeKdl1yMsNN0lLPDBhCY1UeCcEEFoRtRmt5fAROAH3GWkElkU2C9qutKmoG3qN0j8uWyHJQPwSpBamtOwbJVXS9i2D62oD58Wkor235mAb4md26HqgiadSAuhYvqEl3P-rUhOWHZseX1YYSOUdwoW6javlxvvbDSsm-HM2cokvkUYU2gQnTWLIr5nmNbbdD1AfiT5KnGoo50ycmZPwqs1nSjEJ9XA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Икра чёрная',
+    link: '',
+    pfs: {
+      proteins: 2,
+      fats: 50,
+      carbohydrates: 10,
+      energyValue: 130
+    }
+  },
+  {
+    img: 'https://s3-alpha-sig.figma.com/img/2273/b732/2cd437e6c94b11da7c2742026feef59e?Expires=1662336000&Signature=DEWIbdsyDyPrvsvieHT0wwCDA59QKZkVK~WLCjTpgLWJolLrkA-eRLHWP-opwdUeWyFKDq8eQU9l02qyjOuxErWLG985hPoca0uAkWGShGfbfSqFLbcHjDHjjMeKdl1yMsNN0lLPDBhCY1UeCcEEFoRtRmt5fAROAH3GWkElkU2C9qutKmoG3qN0j8uWyHJQPwSpBamtOwbJVXS9i2D62oD58Wkor235mAb4md26HqgiadSAuhYvqEl3P-rUhOWHZseX1YYSOUdwoW6javlxvvbDSsm-HM2cokvkUYU2gQnTWLIr5nmNbbdD1AfiT5KnGoo50ycmZPwqs1nSjEJ9XA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+    name: 'Барабулька',
+    link: '',
+    pfs: {
+      proteins: 24,
+      fats: 30,
+      carbohydrates: 108,
+      energyValue: 800
+    }
   }
 ];
 
@@ -524,6 +573,13 @@ const UiKit = () => {
         {productTypesData.map((card) => (
           <div className="ui-kit__product-type-card" key={card.name}>
             <ProductTypeCard name={card.name} img={card.img} link={card.link} />
+          </div>
+        ))}
+      </div>
+      <div className="ui-kit__product-type-cards">
+        {productCardsData.map((card) => (
+          <div className="ui-kit__product-type-card" key={card.name}>
+            <ProductCard name={card.name} img={card.img} link={card.link} pfs={card.pfs} />
           </div>
         ))}
       </div>

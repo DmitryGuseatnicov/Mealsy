@@ -11,6 +11,7 @@ import RangeSlider, { IRangeSlider } from './RangeSlider/RangeSlider';
 import ReceptCard, { IReceptCard } from './ReceptCard/ReceptCard';
 import CategoryFeed, { ICategoryFeed } from './CategoryFeed/CategoryFeed';
 import ProductTypeCard, { IProductTypeCard } from './ProductTypeCard/ProductTypeCard';
+import ProductCard, { IProductCard } from './ProductCard/ProductCard';
 
 export type {
   IButton,
@@ -24,7 +25,8 @@ export type {
   IRangeSlider,
   IReceptCard,
   ICategoryFeed,
-  IProductTypeCard
+  IProductTypeCard,
+  IProductCard
 };
 export {
   Logo,
@@ -39,5 +41,6 @@ export {
   RangeSlider,
   ReceptCard,
   CategoryFeed,
-  ProductTypeCard
+  ProductTypeCard,
+  ProductCard
 };
