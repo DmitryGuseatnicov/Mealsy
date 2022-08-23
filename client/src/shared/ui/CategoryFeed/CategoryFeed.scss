@@ -23,4 +23,33 @@
     color: $color-main;
     text-align: center;
   }
+
+  &__button-prev,
+  &__button-next {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+
+    &_disable {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  &__button-prev {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &__button-next {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+  }
+
+  .slick-list {
+    padding-top: 20px;
+  }
 }
