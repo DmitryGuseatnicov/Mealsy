@@ -40,6 +40,11 @@ $block-name: 'radio';
 
   &__label {
     position: relative;
+    display: inline-flex;
+  }
+
+  &__text {
+    display: inline-block;
   }
 
   &_size-small {
@@ -52,7 +57,8 @@ $block-name: 'radio';
           content: '';
           position: absolute;
           left: 0;
-          top: 5px;
+          top: 50%;
+          transform: translateY(-50%);
           width: 20px;
           height: 20px;
           border-radius: 50%;
@@ -71,6 +77,8 @@ $block-name: 'radio';
         &::after {
           content: '';
           position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
           left: 0;
           width: 24px;
           height: 24px;
