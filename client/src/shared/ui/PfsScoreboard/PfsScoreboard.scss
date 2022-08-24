@@ -1,0 +1,72 @@
+@import 'shared/styles/var.scss';
+
+$block-name : 'pfs-scoreboard';
+
+.#{$block-name} {
+  max-width: 490px;
+  display: flex;
+  justify-content: space-between;
+
+  &__item {
+    border-radius: 10px;
+    border: 1px solid $color-main;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &:nth-child(1) {
+      background-color: $color-second-lighter;
+      border-color: $color-second-light;
+
+      .#{$block-name} {
+        &__name {
+          color: $color-second;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: rgba(255, 223, 254, 0.52);;
+      border-color: #E7BCE5;
+
+      .#{$block-name} {
+        &__name {
+          color: #E68DE3;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      background-color: rgba(220, 224, 255, 0.52);
+      border-color: #B8BEEC;;
+
+      .#{$block-name} {
+        &__name {
+          color: #969ED9;
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      background-color:rgba(248, 237, 140, 0.22);
+      border-color: #F8ED8C;;
+
+      .#{$block-name} {
+        &__name {
+          color: #DAC936;
+        }
+      }
+    }
+  }
+
+  &__name {
+    @extend %text-main-small;
+  }
+
+  &__value {
+    @extend %text-main-small;
+  }
+}

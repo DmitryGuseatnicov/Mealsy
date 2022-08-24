@@ -26,7 +26,8 @@ import {
   Radio,
   Checkbox,
   Dropdown,
-  IRadio
+  IRadio,
+  PfsScoreboard
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -708,6 +709,14 @@ const UiKit = () => {
             ))}
           </Dropdown>
         </div>
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Pfs Scoreboard
+        </Title>
+      </div>
+      <div className="ui-kit__pfs">
+        <PfsScoreboard proteins={100} fats={100} carbohydrates={100} energyValue={100} />
       </div>
     </div>
   );

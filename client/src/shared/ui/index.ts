@@ -16,6 +16,7 @@ import DescriptionCard, { IDescriptionCard } from './DescriptionCard/Description
 import Radio, { IRadio } from './Radio/Radio';
 import Checkbox, { ICheckbox } from './Checkbox/Checkbox';
 import Dropdown, { IDropdown } from './Dropdown/Dropdown';
+import PfsScoreboard, { IPfsScoreboard } from './PfsScoreboard/PfsScoreboard';
 
 export type {
   IButton,
@@ -34,7 +35,8 @@ export type {
   IDescriptionCard,
   IRadio,
   ICheckbox,
-  IDropdown
+  IDropdown,
+  IPfsScoreboard
 };
 export {
   Logo,
@@ -54,5 +56,6 @@ export {
   DescriptionCard,
   Radio,
   Checkbox,
-  Dropdown
+  Dropdown,
+  PfsScoreboard
 };
