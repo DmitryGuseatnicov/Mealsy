@@ -117,9 +117,15 @@
     margin-top: 40px;
   }
 
+  &__popup {
+    margin-top: 40px;
+  }
+
   &__popup-children {
-    max-width: 500px;
-    height: 500px;
     background: #fff;
+  }
+
+  &__forms {
+    margin-top: 40px;
   }
 }

@@ -29,7 +29,8 @@ import {
   IRadio,
   PfsScoreboard,
   Popup,
-  FormContainer
+  FormContainer,
+  AddReceptForm
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -747,10 +748,20 @@ const UiKit = () => {
           <Popup isOpen={isVisiblePopup} onOutsideClick={handlePopupClick}>
             <FormContainer withImg>
               <div className="ui-kit__popup-children">
-                <div className="div-some">1111111111121212121211212</div>
+                <AddReceptForm />
               </div>
             </FormContainer>
           </Popup>
+        </div>
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Forms
+        </Title>
+      </div>
+      <div className="ui-kit__forms">
+        <div className="ui-kit__form">
+          <AddReceptForm />
         </div>
       </div>
     </div>

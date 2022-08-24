@@ -1,6 +1,6 @@
 .form-container {
   display: flex;
-
+  width: 100%;
   &__img {
     min-width: 350px;
     background: url('./assets/img/form-img-design.png') no-repeat center/cover;
@@ -8,6 +8,7 @@
 
   &__children {
     background: #fff;
-    padding: 60px 30px 30px;
+    padding-top: 60px;
+    width: 100%;
   }
 }

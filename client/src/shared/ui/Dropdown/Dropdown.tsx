@@ -45,9 +45,19 @@ const Dropdown: FC<IDropdown> = (props) => {
       <div className="dropdown__content">
         <div className="dropdown__items">
           {visibleState.isShowAllItems
-            ? children.map((el) => <div className="dropdown__item">{el}</div>)
+            ? children.map((el) => (
+                <div className="dropdown__item" key={Math.random()}>
+                  {el}
+                </div>
+              ))
             : children.map((el, i) =>
-                limited && i < limited ? <div className="dropdown__item">{el}</div> : ''
+                limited && i < limited ? (
+                  <div className="dropdown__item" key={Math.random()}>
+                    {el}
+                  </div>
+                ) : (
+                  ''
+                )
               )}
           {!limited && children.map((el) => <div className="dropdown__item">{el}</div>)}
         </div>

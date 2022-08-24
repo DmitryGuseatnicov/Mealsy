@@ -19,6 +19,8 @@ import Dropdown, { IDropdown } from './Dropdown/Dropdown';
 import PfsScoreboard, { IPfsScoreboard } from './PfsScoreboard/PfsScoreboard';
 import Popup, { IPopup } from './Popup/Popup';
 import FormContainer, { IFormContainer } from './FormContainer/FormContainer';
+// in future removed to business components
+import AddReceptForm from './AddReceptForm/AddReceptForm';
 
 export type {
   IButton,
@@ -63,5 +65,6 @@ export {
   Dropdown,
   PfsScoreboard,
   Popup,
-  FormContainer
+  FormContainer,
+  AddReceptForm
 };
