@@ -15,6 +15,7 @@ import ProductCard, { IProductCard } from './ProductCard/ProductCard';
 import DescriptionCard, { IDescriptionCard } from './DescriptionCard/DescriptionCard';
 import Radio, { IRadio } from './Radio/Radio';
 import Checkbox, { ICheckbox } from './Checkbox/Checkbox';
+import Dropdown, { IDropdown } from './Dropdown/Dropdown';
 
 export type {
   IButton,
@@ -32,7 +33,8 @@ export type {
   IProductCard,
   IDescriptionCard,
   IRadio,
-  ICheckbox
+  ICheckbox,
+  IDropdown
 };
 export {
   Logo,
@@ -51,5 +53,6 @@ export {
   ProductCard,
   DescriptionCard,
   Radio,
-  Checkbox
+  Checkbox,
+  Dropdown
 };

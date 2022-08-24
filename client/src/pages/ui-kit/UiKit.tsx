@@ -24,7 +24,9 @@ import {
   IDescriptionCard,
   DescriptionCard,
   Radio,
-  Checkbox
+  Checkbox,
+  Dropdown,
+  IRadio
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -232,6 +234,34 @@ const productTypesData: IProductTypeCard[] = [
     name: 'Бакалея',
     link: ''
   }
+];
+
+const dropdownListDataFirst: IRadio[] = [
+  {
+    label: 'Диабетические рецепты',
+    value: 'Диабетические рецепты',
+    name: 'Тип питания'
+  },
+  {
+    label: 'Низкокалорийные рецепты',
+    value: 'Низкокалорийные рецепты',
+    name: 'Тип питания'
+  },
+  { label: 'ПП-рецепты', value: 'ПП-рецепты', name: 'Тип питания' },
+  { label: 'Сыроедение', value: 'Сыроедение', name: 'Тип питания' },
+  {
+    label: 'Безглютеновые рецепты',
+    value: 'Безглютеновые рецепты',
+    name: 'Тип питания'
+  },
+  { label: 'Калорийные рецепты', value: 'Калорийные рецепты', name: 'Тип питания', size: 'medium' }
+];
+const dropdownListDataSecond: IRadio[] = [
+  { label: 'Бранч', value: 'Бранч', name: 'Время приема' },
+  { label: 'Завтрак', value: 'Завтрак', name: 'Время приема' },
+  { label: 'Ланч', value: 'Ланч', name: 'Время приема' },
+  { label: 'Обед', value: 'Обед', name: 'Время приема' },
+  { label: 'Перекус', value: 'Перекус', name: 'Время приема' }
 ];
 
 const productCardsData: IProductCard[] = [
@@ -645,6 +675,39 @@ const UiKit = () => {
       </div>
       <div className="ui-kit__category-feed">
         <CategoryFeed categories={categories} />
+      </div>
+      <div className="ui-kit__block-title">
+        <Title level={3} size="big">
+          Checkbox-list
+        </Title>
+      </div>
+      <div className="ui-kit__dropdown-lists">
+        <div className="ui-kit__dropdown-list">
+          <Dropdown title="Тип питания" limited={4} isOpen>
+            {dropdownListDataFirst.map((item) => (
+              <Radio
+                label={item.label}
+                value={item.value}
+                name={item.name}
+                size="medium"
+                key={item.value}
+              />
+            ))}
+          </Dropdown>
+        </div>
+        <div className="ui-kit__dropdown-list">
+          <Dropdown title="Время приема" isOpen>
+            {dropdownListDataSecond.map((item) => (
+              <Radio
+                label={item.label}
+                value={item.value}
+                name={item.name}
+                size="medium"
+                key={item.value}
+              />
+            ))}
+          </Dropdown>
+        </div>
       </div>
     </div>
   );

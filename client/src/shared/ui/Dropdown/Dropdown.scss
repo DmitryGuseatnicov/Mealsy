@@ -1,0 +1,62 @@
+@import 'shared/styles/var.scss';
+
+$block-name: 'dropdown';
+
+.#{$block-name} {
+  &_open {
+    .#{$block-name} {
+      &__content {
+        display: block;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
+    display: none;
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__button-open {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 1px $color-second-light;
+    }
+  }
+
+  &__items {
+    margin-top: 25px;
+  }
+
+  &__item {
+    margin-top: 5px;
+  }
+
+  &__button-show-all {
+    margin-top: 20px;
+    border: none;
+    background: inherit;
+    color: $color-second-light;
+
+    @extend %text-main;
+
+    font-weight: 700;
+    outline: none;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-second;
+    }
+  }
+}
