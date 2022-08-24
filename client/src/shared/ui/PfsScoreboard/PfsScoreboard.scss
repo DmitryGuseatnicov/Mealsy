@@ -1,6 +1,6 @@
 @import 'shared/styles/var.scss';
 
-$block-name : 'pfs-scoreboard';
+$block-name: 'pfs-scoreboard';
 
 .#{$block-name} {
   max-width: 490px;
@@ -29,34 +29,34 @@ $block-name : 'pfs-scoreboard';
     }
 
     &:nth-child(2) {
-      background-color: rgba(255, 223, 254, 0.52);;
-      border-color: #E7BCE5;
+      background-color: rgb(255 223 254 / 52%);
+      border-color: #e7bce5;
 
       .#{$block-name} {
         &__name {
-          color: #E68DE3;
+          color: #e68de3;
         }
       }
     }
 
     &:nth-child(3) {
-      background-color: rgba(220, 224, 255, 0.52);
-      border-color: #B8BEEC;;
+      background-color: rgb(220 224 255 / 52%);
+      border-color: #b8beec;
 
       .#{$block-name} {
         &__name {
-          color: #969ED9;
+          color: #969ed9;
         }
       }
     }
 
     &:nth-child(4) {
-      background-color:rgba(248, 237, 140, 0.22);
-      border-color: #F8ED8C;;
+      background-color: rgb(248 237 140 / 22%);
+      border-color: #f8ed8c;
 
       .#{$block-name} {
         &__name {
-          color: #DAC936;
+          color: #dac936;
         }
       }
     }

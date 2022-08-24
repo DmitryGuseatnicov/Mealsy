@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC } from 'react';
+import Icon from '../Icon/Icon';
 import './Popup.scss';
 
 interface IPopup {
@@ -21,6 +22,9 @@ const Popup: FC<IPopup> = (props) => {
     return (
       <div className="popup" onClick={onOutsideClick}>
         <div className="popup__children" onClick={handlePopupChildrenClick}>
+          <button className="popup__button-close" type="button" onClick={onOutsideClick}>
+            <Icon name="close" color="dark" />
+          </button>
           {children}
         </div>
       </div>
