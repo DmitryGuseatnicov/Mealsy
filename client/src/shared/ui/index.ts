@@ -18,6 +18,7 @@ import Checkbox, { ICheckbox } from './Checkbox/Checkbox';
 import Dropdown, { IDropdown } from './Dropdown/Dropdown';
 import PfsScoreboard, { IPfsScoreboard } from './PfsScoreboard/PfsScoreboard';
 import Popup, { IPopup } from './Popup/Popup';
+import FormContainer, { IFormContainer } from './FormContainer/FormContainer';
 
 export type {
   IButton,
@@ -38,7 +39,8 @@ export type {
   ICheckbox,
   IDropdown,
   IPfsScoreboard,
-  IPopup
+  IPopup,
+  IFormContainer
 };
 export {
   Logo,
@@ -60,5 +62,6 @@ export {
   Checkbox,
   Dropdown,
   PfsScoreboard,
-  Popup
+  Popup,
+  FormContainer
 };

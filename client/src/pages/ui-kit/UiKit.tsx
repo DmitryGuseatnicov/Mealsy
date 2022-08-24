@@ -28,7 +28,8 @@ import {
   Dropdown,
   IRadio,
   PfsScoreboard,
-  Popup
+  Popup,
+  FormContainer
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -744,7 +745,11 @@ const UiKit = () => {
             Открыть
           </Button>
           <Popup isOpen={isVisiblePopup} onOutsideClick={handlePopupClick}>
-            <div className="ui-kit__popup-children">Это Popup</div>
+            <FormContainer withImg>
+              <div className="ui-kit__popup-children">
+                <div className="div-some">1111111111121212121211212</div>
+              </div>
+            </FormContainer>
           </Popup>
         </div>
       </div>
