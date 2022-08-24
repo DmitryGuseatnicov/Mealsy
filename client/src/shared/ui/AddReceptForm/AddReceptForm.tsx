@@ -1,5 +1,6 @@
 import React from 'react';
 
+import dishPlaceholder from 'shared/assets/img/dish-placeholder.png';
 import Button from '../Button/Button';
 import { Select } from '../Select/Select';
 import './AddReceptForm.scss';
@@ -9,7 +10,7 @@ const AddReceptForm = () => {
     <form className="add-recept-form">
       <div className="add-recept-form__title">сохранить рецепт</div>
       <div className="add-recept-form__photo">
-        <img src="" alt="" className="add-recept-form__img" />
+        <img src={dishPlaceholder} alt="" className="add-recept-form__img" />
       </div>
       <div className="add-recept-form__recept-name">Бефстроганов в одной кастрюле</div>
       <div className="add-recept-form__select-book">
