@@ -17,6 +17,7 @@ import Radio, { IRadio } from './Radio/Radio';
 import Checkbox, { ICheckbox } from './Checkbox/Checkbox';
 import Dropdown, { IDropdown } from './Dropdown/Dropdown';
 import PfsScoreboard, { IPfsScoreboard } from './PfsScoreboard/PfsScoreboard';
+import Popup, { IPopup } from './Popup/Popup';
 
 export type {
   IButton,
@@ -36,7 +37,8 @@ export type {
   IRadio,
   ICheckbox,
   IDropdown,
-  IPfsScoreboard
+  IPfsScoreboard,
+  IPopup
 };
 export {
   Logo,
@@ -57,5 +59,6 @@ export {
   Radio,
   Checkbox,
   Dropdown,
-  PfsScoreboard
+  PfsScoreboard,
+  Popup
 };
