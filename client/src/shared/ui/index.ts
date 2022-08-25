@@ -21,6 +21,7 @@ import Popup, { IPopup } from './Popup/Popup';
 import FormContainer, { IFormContainer } from './FormContainer/FormContainer';
 // in future removed to business components
 import AddReceptForm from './AddReceptForm/AddReceptForm';
+import LoginForm from './LoginForm/LoginForm';
 
 export type {
   IButton,
@@ -66,5 +67,6 @@ export {
   PfsScoreboard,
   Popup,
   FormContainer,
-  AddReceptForm
+  AddReceptForm,
+  LoginForm
 };

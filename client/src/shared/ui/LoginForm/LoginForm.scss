@@ -1,0 +1,32 @@
+@import 'shared/styles/var.scss';
+
+.login-form {
+  min-width: 550px;
+  padding: 30px 33px;
+  background: #FFF;
+
+  &__sub-title {
+    margin-top: 30px;
+    font-weight: 400;
+    @extend %text-main-medium;
+  }
+
+  &__input {
+    margin-top: 20px;
+  }
+
+  &__help-buttons  {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__login-button {
+    margin-top: 20px;
+  }
+
+  &__register-link-block {
+    margin-top: 30px;
+  }
+}

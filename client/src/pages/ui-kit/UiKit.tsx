@@ -31,7 +31,8 @@ import {
   PfsScoreboard,
   Popup,
   FormContainer,
-  AddReceptForm
+  AddReceptForm,
+  LoginForm
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -749,7 +750,7 @@ const UiKit = () => {
           <Popup isOpen={isVisiblePopup} onOutsideClick={handlePopupClick}>
             <FormContainer withImg>
               <div className="ui-kit__popup-children">
-                <AddReceptForm />
+                <LoginForm />
               </div>
             </FormContainer>
           </Popup>
@@ -763,6 +764,9 @@ const UiKit = () => {
       <div className="ui-kit__forms">
         <div className="ui-kit__form">
           <AddReceptForm />
+        </div>
+        <div className="ui-kit__form">
+          <LoginForm />
         </div>
       </div>
     </div>
