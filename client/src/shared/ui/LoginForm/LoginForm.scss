@@ -22,11 +22,19 @@
     justify-content: space-between;
   }
 
+  &__link-recover-button {
+    color: $color-second;
+  }
+
   &__login-button {
     margin-top: 20px;
   }
 
   &__register-link-block {
     margin-top: 30px;
+  }
+
+  &__register-link {
+    color: $color-second;
   }
 }

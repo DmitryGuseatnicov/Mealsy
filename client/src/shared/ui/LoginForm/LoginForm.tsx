@@ -6,8 +6,6 @@ import Input from '../Input/Input';
 import Title from '../Title/Title';
 import './LoginForm.scss';
 
-/// test
-
 const LoginForm = () => {
   return (
     <form className="login-form">
@@ -39,7 +37,7 @@ const LoginForm = () => {
       </div>
       <div className="login-form__register-link-block">
         <span>Не зарегестрированы? </span>
-        <Link className="login-form__link" to="/">
+        <Link className="login-form__register-link" to="/">
           Зарегестрироваться
         </Link>
       </div>
