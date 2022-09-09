@@ -1,0 +1,37 @@
+@import 'shared/styles/var.scss';
+
+.register-form {
+  min-width: 550px;
+  padding: 30px 33px;
+  background: #FFF;
+
+  &__sub-title {
+    margin-top: 30px;
+    font-weight: 400;
+    @extend %text-main-medium;
+  }
+
+  &__input {
+    margin-top: 20px;
+  }
+
+  &__link-recover-button {
+    color: $color-second;
+  }
+
+  &__register-button {
+    margin-top: 20px;
+  }
+
+  &__checkbox {
+    margin-top: 30px;
+  }
+
+  &__login-link-block {
+    margin-top: 30px;
+  }
+
+  &__register-link {
+    color: $color-second;
+  }
+}

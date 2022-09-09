@@ -22,6 +22,7 @@ import FormContainer, { IFormContainer } from './FormContainer/FormContainer';
 // in future removed to business components
 import AddReceptForm from './AddReceptForm/AddReceptForm';
 import LoginForm from './LoginForm/LoginForm';
+import RegisterForm from './RegisterForm/RegisterForm';
 
 export type {
   IButton,
@@ -68,5 +69,6 @@ export {
   Popup,
   FormContainer,
   AddReceptForm,
-  LoginForm
+  LoginForm,
+  RegisterForm
 };
