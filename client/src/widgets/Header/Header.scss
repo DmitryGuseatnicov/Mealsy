@@ -1,0 +1,75 @@
+@import 'shared/styles/var.scss';
+
+.header {
+  background-color: #FFF;
+  &__inner {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+  }
+
+  &__logo {
+    max-width: 151px;
+    min-width: 100px;
+    width: 100%;
+  }
+
+  &__nav-list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__nav-item {
+    margin-left: 40px;
+  }
+
+  &__nav-open-menu-button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+    @extend %text-main;
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: $color-main;
+  }
+
+  &__search-input {
+    margin: 0 40px;
+    flex-grow: 1;
+  }
+
+  &__auth-button {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__menu {
+    position: relative;
+    width: 100%;
+  }
+
+  &__menu-inner {
+    padding: 30px 0;
+    border-top: 1px solid $color-second;
+    background: #FFF;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    box-shadow: 0px 7px 4px -5px rgba(34, 60, 80, 0.2);
+  }
+
+  &__menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  &__menu-item {
+    min-width: 200px;
+    margin: 20px 0;
+    width: 25%;
+  }
+}

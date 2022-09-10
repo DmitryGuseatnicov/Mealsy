@@ -9,7 +9,6 @@ import {
   IInput,
   Input,
   ITitle,
-  Logo,
   Title,
   Select,
   DateDropdown,
@@ -417,11 +416,6 @@ const UiKit = () => {
 
   return (
     <div className="ui-kit">
-      <div className="ui-kit__graphic">
-        <div className="ui-kit__logo">
-          <Logo />
-        </div>
-      </div>
       <div className="ui-kit__titles">
         {titleVariants.map((title) => (
           <div className="ui-kit__title" key={Math.random()}>

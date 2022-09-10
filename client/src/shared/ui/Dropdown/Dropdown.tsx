@@ -59,7 +59,12 @@ const Dropdown: FC<IDropdown> = (props) => {
                   ''
                 )
               )}
-          {!limited && children.map((el) => <div className="dropdown__item">{el}</div>)}
+          {!limited &&
+            children.map((el) => (
+              <div className="dropdown__item" key={Math.random()}>
+                {el}
+              </div>
+            ))}
         </div>
         {limited && (
           <button

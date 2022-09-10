@@ -22,7 +22,7 @@ const LinkList: FC<ILinkList> = ({ title, links }) => {
       </div>
       <ul className="link-list__items">
         {links.map((link) => (
-          <li className="link-list__item">
+          <li className="link-list__item" key={link.name}>
             <Link className="link-list__link" to={link.link}>
               {link.name}
             </Link>
