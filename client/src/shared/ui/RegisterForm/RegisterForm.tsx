@@ -24,12 +24,12 @@ const RegisterForm = () => {
         <Input name="mail" type="mail" placeholder="Ваш Email" />
       </div>
       <div className="register-form__input">
-        <Input name="password" type="password" placeholder="Ваш Email">
+        <Input name="password" type="password" placeholder="Пароль">
           <Icon name="eye-slash" color="dark" />
         </Input>
       </div>
       <div className="register-form__input">
-        <Input name="password2" type="password" placeholder="Ваш Email">
+        <Input name="password2" type="password" placeholder="Повторите пароль">
           <Icon name="eye-slash" color="dark" />
         </Input>
       </div>

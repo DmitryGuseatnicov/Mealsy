@@ -19,7 +19,7 @@ const LoginForm = () => {
         <Input name="mail" type="mail" placeholder="Ваш Email" />
       </div>
       <div className="login-form__input">
-        <Input name="mail" type="mail" placeholder="Ваш Email" />
+        <Input name="mail" type="mail" placeholder="Ваш пароль" />
       </div>
       <div className="login-form__help-buttons">
         <div className="login-form__checkbox">
