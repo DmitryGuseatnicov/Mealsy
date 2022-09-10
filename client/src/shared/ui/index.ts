@@ -19,6 +19,7 @@ import Dropdown, { IDropdown } from './Dropdown/Dropdown';
 import PfsScoreboard, { IPfsScoreboard } from './PfsScoreboard/PfsScoreboard';
 import Popup, { IPopup } from './Popup/Popup';
 import FormContainer, { IFormContainer } from './FormContainer/FormContainer';
+import LinkList, { ILinkList } from './LinkList/LinkList';
 // in future removed to business components
 import AddReceptForm from './AddReceptForm/AddReceptForm';
 import LoginForm from './LoginForm/LoginForm';
@@ -45,7 +46,8 @@ export type {
   IDropdown,
   IPfsScoreboard,
   IPopup,
-  IFormContainer
+  IFormContainer,
+  ILinkList
 };
 export {
   Logo,
@@ -72,5 +74,6 @@ export {
   AddReceptForm,
   LoginForm,
   RegisterForm,
-  SubscribeForm
+  SubscribeForm,
+  LinkList
 };
