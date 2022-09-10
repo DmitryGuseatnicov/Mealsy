@@ -33,7 +33,8 @@ import {
   FormContainer,
   AddReceptForm,
   LoginForm,
-  RegisterForm
+  RegisterForm,
+  SubscribeForm
 } from 'shared/ui';
 import './UiKit.scss';
 
@@ -751,7 +752,7 @@ const UiKit = () => {
           <Popup isOpen={isVisiblePopup} onOutsideClick={handlePopupClick}>
             <FormContainer withImg>
               <div className="ui-kit__popup-children">
-                <RegisterForm />
+                <SubscribeForm type="popup" />
               </div>
             </FormContainer>
           </Popup>
@@ -771,6 +772,9 @@ const UiKit = () => {
         </div>
         <div className="ui-kit__form">
           <RegisterForm />
+        </div>
+        <div className="ui-kit__form">
+          <SubscribeForm type="static" />
         </div>
       </div>
     </div>

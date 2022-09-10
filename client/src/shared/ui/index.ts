@@ -23,6 +23,7 @@ import FormContainer, { IFormContainer } from './FormContainer/FormContainer';
 import AddReceptForm from './AddReceptForm/AddReceptForm';
 import LoginForm from './LoginForm/LoginForm';
 import RegisterForm from './RegisterForm/RegisterForm';
+import SubscribeForm from './SubscribeForm/SubscribeForm';
 
 export type {
   IButton,
@@ -70,5 +71,6 @@ export {
   FormContainer,
   AddReceptForm,
   LoginForm,
-  RegisterForm
+  RegisterForm,
+  SubscribeForm
 };
