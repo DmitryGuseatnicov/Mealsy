@@ -1,0 +1,120 @@
+@import 'shared/styles/var.scss';
+
+.footer {
+  background: $color-second-lighter;
+  padding: 30px 0 70px 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+
+    @include media-breakpoint-down($sm) {
+      flex-wrap: wrap;
+      padding: 0 50px;
+    }
+
+    @include media-breakpoint-down($xs) {
+      flex-wrap: wrap;
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    max-width: 151px;
+    min-width: 100px;
+    width: 100%;
+    
+    @include media-breakpoint-down($lg) {
+      display: none;
+    }
+  }
+
+  &__contacts {
+    padding: 0 10px;
+
+    @include media-breakpoint-down($sm) {
+      width: 100%;
+    }
+  }
+
+  &__socials-title {
+    margin-top: 30px;
+  }
+
+  &__socials-links {
+    margin-top: 10px;
+    display: flex;
+  }
+
+  &__socials-link {
+    margin-right: 10px;
+    outline: none;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+    }
+  }
+
+  &__subscribe {
+    margin-top: 30px;
+  }
+
+  &__subscribe-input {
+    margin-top: 10px;
+  }
+
+  &__subscribe-button {
+    margin-top: 10px;
+  }
+
+  &__nav {
+    padding: 0 50px;
+    border-left: 1px solid $color-second;
+    border-right: 1px solid $color-second;
+
+    @include media-breakpoint-down($md) {
+      display: none;
+    }
+  }
+
+  &__nav-items {
+    list-style: none;
+  }
+
+  &__nav-item {
+    margin-top: 30px;
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    outline: none;
+    @extend %text-main;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+    }
+  }
+  
+  &__feedback {
+    padding: 0 10px;
+    max-width: 404px;
+
+    @include media-breakpoint-down($sm) {
+      width: 100%;
+      margin-top: 30px;
+    }
+  }
+
+  &__feedback-info {
+    margin-top: 20px;
+  }
+
+  &__feedback-mail-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: $color-second;
+    font-weight: 700;
+  }
+}

@@ -18,6 +18,15 @@ $font-wight-standard: 400;
 $font-wight-medium: 500;
 $font-wight-bold: 700;
 
+$xxs: 420px;
+$xs: 575px;
+$sm: 767px;
+$md: 991px;
+$lg: 1199px;
+$xl: 1440px;
+$xxl: 1920px;
+
+
 %text-main {
   font-family: $font-main;
   font-style: normal;
@@ -88,3 +97,22 @@ $font-wight-bold: 700;
   margin: 0 auto;
   padding: 0 20px;
 }
+
+@mixin media-breakpoint-up($width) {
+  @media (min-width: ($width + 1)) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($min-width, $max-width) {
+  @media (min-width: ($min-width + 1)) and (max-width: $max-width) {
+    @content;
+  }
+}
+
