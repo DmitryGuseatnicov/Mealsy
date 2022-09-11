@@ -75,14 +75,41 @@ const linksData = [
         name: 'Салаты'
       }
     ]
+  },
+  {
+    title: 'По типу блюда',
+    links: [
+      {
+        link: ' /change-me',
+        name: 'Мясные блюда'
+      },
+      {
+        link: ' /change-me',
+        name: 'Блюда из рыбы'
+      },
+      {
+        link: ' /change-me',
+        name: 'Пицца и паста'
+      },
+      {
+        link: ' /change-me',
+        name: 'Салаты'
+      }
+    ]
   }
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleMenuOpenButtonClick = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleBurgerClick = () => {
+    setIsNavOpen(!isNavOpen);
+    document.body.style.overflow = !isNavOpen ? 'hidden' : '';
   };
 
   const isAuth = false;
@@ -93,33 +120,43 @@ const Header = () => {
           <Link className="header__logo" to="/">
             <Logo />
           </Link>
-          <nav className="header__nav">
-            <ul className="header__nav-list">
-              <li className="header__nav-item">
-                <button
-                  className="header__nav-open-menu-button"
-                  type="button"
-                  onClick={handleMenuOpenButtonClick}>
-                  Рецепты
-                </button>
-              </li>
-              <li className="header__nav-item">
-                <Link className="header__nav-link" to="/manual">
-                  Справочник
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <div className="header__search-input">
-            <Input name="search" type="text" placeholder="Поиск рецептов">
-              <Icon name="search" />
-            </Input>
+          <div className={`header__panel ${isNavOpen ? 'header__panel_visible' : ''}`}>
+            <nav className="header__nav">
+              <ul className="header__nav-list">
+                <li className="header__nav-item">
+                  <button
+                    className="header__nav-open-menu-button"
+                    type="button"
+                    onClick={handleMenuOpenButtonClick}>
+                    Рецепты
+                  </button>
+                </li>
+                <li className="header__nav-item">
+                  <Link className="header__nav-link" to="/manual">
+                    Справочник
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+            <div className="header__search-input">
+              <Input name="search" type="text" placeholder="Поиск рецептов">
+                <Icon name="search" />
+              </Input>
+            </div>
+            <div className="header__auth-button">
+              <Button size="adaptive" color="second" fill="main" outline="none">
+                {isAuth ? 'Выйти' : 'Войти'}
+              </Button>
+            </div>
           </div>
-          <div className="header__auth-button">
-            <Button size="small" color="second" fill="main" outline="none">
-              {isAuth ? 'Выйти' : 'Войти'}
-            </Button>
-          </div>
+          <button
+            className={`header__burger ${isNavOpen ? 'header__burger_variant-open' : ''}`}
+            type="button"
+            onClick={handleBurgerClick}>
+            <span className="header__burger-line" />
+            <span className="header__burger-line" />
+            <span className="header__burger-line" />
+          </button>
         </div>
       </div>
       <div className="header__menu">

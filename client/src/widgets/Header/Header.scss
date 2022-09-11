@@ -1,10 +1,13 @@
 @import 'shared/styles/var.scss';
 
-.header {
+$block-name: 'header';
+
+.#{$block-name} {
   background-color: #FFF;
   &__inner {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 30px 0;
   }
 
@@ -12,6 +15,117 @@
     max-width: 151px;
     min-width: 100px;
     width: 100%;
+    outline: none;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+
+    @include media-breakpoint-down($md) {
+        position: absolute;
+        top: 0;
+        z-index: 99;
+        right: 0;
+        width: 50%;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        background: #FFF;
+
+        &_visible {
+          display: flex;
+        }
+        
+        .#{$block-name} {
+          &__nav-list {
+            flex-direction: column;
+          }
+  
+          &__nav-item {
+            margin: 30px auto;
+          }
+  
+          &__search-input {
+            margin-top: 30px;
+            flex-grow: 0;
+            order: 3;
+            width: 90%;
+          }
+  
+          &__auth-button {
+            margin-top: 40px;
+            flex-grow: 0;
+            width: 90%;
+            max-width: none;
+          }
+        }
+    }
+
+    @include media-breakpoint-down($xs) {
+      width: 80%;
+    }
+
+    @include media-breakpoint-down($xxs) {
+      width: 90%;
+    }
+  }
+
+  &__burger {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 102;
+    width: 35px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: none;
+    background: inherit;
+
+    @include media-breakpoint-down($md) {
+      display: flex;
+    }
+
+
+
+    &_variant-open {
+      justify-content: center;
+      .#{$block-name} {
+        &__burger-line:nth-child(1) {
+          transform: rotate(-45deg);
+          position: relative;
+          top: 3px;
+        }
+        &__burger-line:nth-child(2) {
+          transform: rotate(45deg);
+          opacity: 0;
+        }
+        &__burger-line:nth-child(3) {
+          transform: rotate(45deg);
+          position: relative;
+          top: -3px;
+        }
+      }
+    }
+  }
+
+  &__burger-line {
+    width: 35px;
+    height: 3px;
+    background: $color-second;
+
+    transition: 0.3s;
   }
 
   &__nav-list {
@@ -27,12 +141,24 @@
     border: none;
     background: inherit;
     cursor: pointer;
+    outline: none;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+    }
     @extend %text-main;
   }
 
   &__nav-link {
     text-decoration: none;
     color: $color-main;
+    outline: none;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+    }
   }
 
   &__search-input {
@@ -44,6 +170,7 @@
     flex-grow: 1;
     display: flex;
     justify-content: flex-end;
+    max-width: 160px;
   }
 
   &__menu {
@@ -57,6 +184,7 @@
     background: #FFF;
     width: 100%;
     position: absolute;
+    z-index: 100;
     top: 0;
     box-shadow: 0px 7px 4px -5px rgba(34, 60, 80, 0.2);
   }
@@ -65,11 +193,31 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+
+    @include media-breakpoint-down($xs) {
+      justify-content: center;
+    }
   }
 
   &__menu-item {
     min-width: 200px;
     margin: 20px 0;
     width: 25%;
+
+    @include media-breakpoint-down($md) {
+      width: 33%;
+    }
+
+    @include media-breakpoint-down($sm) {
+      width: 50%;
+    }
+
+    @include media-breakpoint-down($xs) {
+      width: 70%;
+    }
+
+    @include media-breakpoint-down($xxs) {
+      width: 100%;
+    }
   }
 }
